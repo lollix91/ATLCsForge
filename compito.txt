@@ -1,0 +1,2 @@
+modificare il metamodello ed aggiungere foreign key.
+creare un modello utilizzando il metamodello
