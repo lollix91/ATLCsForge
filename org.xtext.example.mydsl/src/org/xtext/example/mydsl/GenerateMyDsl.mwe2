@@ -31,8 +31,8 @@ Workflow {
 		}
 		language = StandardLanguage {
 			name = "org.xtext.example.mydsl.MyDsl"
-			fileExtensions = "mydsl"
-			referencedResource = "platform:/resource/ATLCsForge/atl/atl_metamodel/ATL.genmodel"
+			fileExtensions = "mydsl2"
+			referencedResource = "platform:/resource/ATLTest/ATL.genmodel"
 			
 			fragment = ecore2xtext.Ecore2XtextValueConverterServiceFragment2 auto-inject {}
 

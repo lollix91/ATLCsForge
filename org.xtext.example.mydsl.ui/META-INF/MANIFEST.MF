@@ -7,6 +7,7 @@ Bundle-SymbolicName: org.xtext.example.mydsl.ui; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.xtext.example.mydsl,
  org.xtext.example.mydsl.ide,
+ org.eclipse.m2m.atl.common,
  org.eclipse.xtext.ui,
  org.eclipse.xtext.ui.shared,
  org.eclipse.xtext.ui.codetemplates.ui,

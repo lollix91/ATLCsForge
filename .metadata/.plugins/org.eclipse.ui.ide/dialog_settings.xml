@@ -3,4 +3,10 @@
 	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
 		<item value="E:\Programmi\Model Driven Engineering\ATLCsForge"/>
 	</list>
+	<section name="NewWizardAction">
+		<item value="atlProjectWizard" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="atlWizard"/>
+		</list>
+	</section>
 </section>
