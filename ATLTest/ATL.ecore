@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore">
-  <ecore:EPackage name="ATL" nsURI="http://www.eclipse.org/gmt/2005/ATL" nsPrefix="atl">
+  <ecore:EPackage name="atl" nsURI="http://www.eclipse.org/gmt/2005/ATL" nsPrefix="atl">
     <eClassifiers xsi:type="ecore:EClass" name="LocatedElement" abstract="true">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" ordered="false"
           unique="false" eType="#/2/String"/>
@@ -195,7 +195,7 @@
           eType="#/0/Statement" containment="true"/>
     </eClassifiers>
   </ecore:EPackage>
-  <ecore:EPackage name="OCL" nsURI="http://www.eclipse.org/gmt/2005/OCL" nsPrefix="ocl">
+  <ecore:EPackage name="ocl" nsURI="http://www.eclipse.org/gmt/2005/OCL" nsPrefix="ocl">
     <eClassifiers xsi:type="ecore:EClass" name="OclExpression" abstract="true" eSuperTypes="#/0/LocatedElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="type" ordered="false"
           eType="#/1/OclType" containment="true" eOpposite="#/1/OclType/oclExpression"/>
