@@ -3,36 +3,26 @@
  */
 package org.xtext.example.mydsl.tests;
 
-import com.google.inject.Inject;
 import ocl.OclExpression;
-import org.eclipse.xtend2.lib.StringConcatenation;
-import org.eclipse.xtext.testing.InjectWith;
-import org.eclipse.xtext.testing.XtextRunner;
-import org.eclipse.xtext.testing.util.ParseHelper;
-import org.eclipse.xtext.xbase.lib.Exceptions;
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.xtext.example.mydsl.tests.MyDslInjectorProvider;
 
-@RunWith(XtextRunner.class)
-@InjectWith(MyDslInjectorProvider.class)
-@SuppressWarnings("all")
+/* @RunWith(/* name is null */)
+@InjectWith(MyDslInjectorProvider.class) */@SuppressWarnings("all")
 public class MyDslParsingTest {
-  @Inject
-  private ParseHelper<OclExpression> parseHelper;
+  /* @Inject
+   */private /* ParseHelper<OclExpression> */Object parseHelper;
   
-  @Test
-  public void loadModel() {
-    try {
-      StringConcatenation _builder = new StringConcatenation();
-      _builder.append("Hello Xtext!");
-      _builder.newLine();
-      final OclExpression result = this.parseHelper.parse(_builder);
-      Assert.assertNotNull(result);
-      Assert.assertTrue(result.eResource().getErrors().isEmpty());
-    } catch (Throwable _e) {
-      throw Exceptions.sneakyThrow(_e);
-    }
+  /* @Test
+   */public void loadModel() {
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field Assert is undefined"
+      + "\nThe method or field Assert is undefined"
+      + "\nThe field MyDslParsingTest.parseHelper refers to the missing type ParseHelper"
+      + "\nparse cannot be resolved"
+      + "\nassertNotNull cannot be resolved"
+      + "\nassertTrue cannot be resolved"
+      + "\neResource cannot be resolved"
+      + "\nerrors cannot be resolved"
+      + "\nisEmpty cannot be resolved");
   }
 }

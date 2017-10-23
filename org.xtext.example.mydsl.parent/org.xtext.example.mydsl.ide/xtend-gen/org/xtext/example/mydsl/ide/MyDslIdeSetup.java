@@ -3,12 +3,7 @@
  */
 package org.xtext.example.mydsl.ide;
 
-import com.google.inject.Guice;
-import com.google.inject.Injector;
-import org.eclipse.xtext.util.Modules2;
-import org.xtext.example.mydsl.MyDslRuntimeModule;
 import org.xtext.example.mydsl.MyDslStandaloneSetup;
-import org.xtext.example.mydsl.ide.MyDslIdeModule;
 
 /**
  * Initialization support for running Xtext languages as language servers.
@@ -16,9 +11,11 @@ import org.xtext.example.mydsl.ide.MyDslIdeModule;
 @SuppressWarnings("all")
 public class MyDslIdeSetup extends MyDslStandaloneSetup {
   @Override
-  public Injector createInjector() {
-    MyDslRuntimeModule _myDslRuntimeModule = new MyDslRuntimeModule();
-    MyDslIdeModule _myDslIdeModule = new MyDslIdeModule();
-    return Guice.createInjector(Modules2.mixin(_myDslRuntimeModule, _myDslIdeModule));
+  public Object createInjector() {
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field Guice is undefined"
+      + "\nThe method or field Modules2 is undefined"
+      + "\ncreateInjector cannot be resolved"
+      + "\nmixin cannot be resolved");
   }
 }

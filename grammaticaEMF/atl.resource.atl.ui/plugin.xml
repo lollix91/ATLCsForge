@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+	<extension point="org.emftext.access.syntax.ui">
+		<metaInformationProvider class="atl.resource.atl.ui.AtlUIMetaInformation" id="atl.resource.atl.ui.AtlUIMetaInformation">
+		</metaInformationProvider>
+	</extension>
+	
+	<extension point="org.eclipse.ui.editors">
+		<editor class="atl.resource.atl.ui.AtlEditor" contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor" extensions="atl" icon="icons/editor_icon.gif" id="atl.resource.atl.ui.AtlEditor" name="EMFText atl Editor">
+			<contentTypeBinding contentTypeId="atl.resource.atl">
+			</contentTypeBinding>
+		</editor>
+	</extension>
+	
+	<extension point="org.eclipse.core.runtime.preferences">
+		<initializer class="atl.resource.atl.ui.AtlPreferenceInitializer">
+		</initializer>
+	</extension>
+	
+	<extension point="org.eclipse.ui.preferencePages">
+		<page name="Atl Text Editor" id="atl.resource.atl.ui.AtlPreferencePage" class="atl.resource.atl.ui.AtlPreferencePage" category="org.eclipse.ui.preferencePages.GeneralTextEditor">
+		</page>
+		<page name="Syntax Coloring" id="atl.resource.atl.ui.AtlSyntaxColoringPreferencePage" class="atl.resource.atl.ui.AtlSyntaxColoringPreferencePage" category="atl.resource.atl.ui.AtlPreferencePage">
+		</page>
+		<page name="Brackets" id="atl.resource.atl.ui.AtlBracketPreferencePage" class="atl.resource.atl.ui.AtlBracketPreferencePage" category="atl.resource.atl.ui.AtlPreferencePage">
+		</page>
+	</extension>
+	
+	<extension point="org.eclipse.ui.newWizards">
+		<category id="org.emftext.runtime.ui.EMFTextFileCategory" name="EMFText File">
+		</category>
+		<wizard category="org.emftext.runtime.ui.EMFTextFileCategory" icon="/icons/default_new_icon.gif" class="atl.resource.atl.ui.AtlNewFileWizard" id="atl.resource.atl.ui.AtlNewFileWizard" name="EMFText .atl file">
+		</wizard>
+		<category id="org.emftext.runtime.ui.EMFTextProjectCategory" name="EMFText Project">
+		</category>
+		<wizard category="org.emftext.runtime.ui.EMFTextProjectCategory" icon="/icons/default_new_icon.gif" class="atl.resource.atl.ui.AtlNewProjectWizard" id="atl.resource.atl.ui.AtlNewProjectWizard" name="EMFText atl project" project="true">
+		</wizard>
+	</extension>
+	
+	<extension point="org.eclipse.ui.ide.markerResolution">
+		<markerResolutionGenerator class="atl.resource.atl.ui.AtlMarkerResolutionGenerator" markerType="atl.resource.atl.problem">
+		</markerResolutionGenerator>
+	</extension>
+	
+	<extension point="org.eclipse.core.filebuffers.annotationModelCreation">
+		<factory class="atl.resource.atl.ui.AtlAnnotationModelFactory" extensions="atl">
+		</factory>
+	</extension>
+	
+	<extension point="org.eclipse.core.contenttype.contentTypes">
+		<content-type id="atl.resource.atl" name=".atl File" base-type="org.eclipse.core.runtime.text" file-extensions="atl">
+		</content-type>
+	</extension>
+	
+	<extension point="org.eclipse.ui.editors.documentProviders">
+		<provider class="org.eclipse.ui.editors.text.TextFileDocumentProvider" extensions="atl" id="atl.resource.atl.ui.provider">
+		</provider>
+	</extension>
+	
+	<extension point="org.eclipse.ui.editors.annotationTypes">
+		<type name="atl.resource.atl.ui.occurences">
+		</type>
+		<type name="atl.resource.atl.ui.occurences.declaration" super="atl.resource.atl.ui.occurences">
+		</type>
+	</extension>
+	
+	<extension point="org.eclipse.ui.editors.markerAnnotationSpecification">
+		<specification annotationType="atl.resource.atl.ui.occurences" label="Occurrences (in .atl files)" icon="/icons/occurrence_icon.gif" textPreferenceKey="atl.occurrenceIndication" textPreferenceValue="false" highlightPreferenceKey="atl.occurrenceHighlighting" highlightPreferenceValue="true" contributesToHeader="false" overviewRulerPreferenceKey="atl.occurrenceIndicationInOverviewRuler" overviewRulerPreferenceValue="true" verticalRulerPreferenceKey="atl.occurrenceIndicationInVerticalRuler" verticalRulerPreferenceValue="false" colorPreferenceKey="atl.occurrenceIndicationColor" colorPreferenceValue="212,212,212" presentationLayer="4" showInNextPrevDropdownToolbarActionKey="atl.showOccurrenceInNextPrevDropdownToolbarAction" showInNextPrevDropdownToolbarAction="true" isGoToNextNavigationTargetKey="atl.isOccurrenceGoToNextNavigationTarget" isGoToNextNavigationTarget="false" isGoToPreviousNavigationTargetKey="atl.isOccurrenceGoToPreviousNavigationTarget" isGoToPreviousNavigationTarget="false" textStylePreferenceKey="atl.occurrenceTextStyle" textStylePreferenceValue="NONE">
+		</specification>
+		<specification annotationType="atl.resource.atl.ui.occurences.declaration" label="Declarations (in .atl files)" textPreferenceKey="atl.declarationIndication" textPreferenceValue="false" highlightPreferenceKey="atl.declarationHighlighting" highlightPreferenceValue="true" overviewRulerPreferenceKey="atl.declarationIndicationInOverviewRuler" overviewRulerPreferenceValue="true" verticalRulerPreferenceKey="atl.declarationIndicationInVerticalRuler" verticalRulerPreferenceValue="false" colorPreferenceKey="atl.declarationIndicationColor" colorPreferenceValue="240,216,168" presentationLayer="4" textStylePreferenceKey="atl.declarationTextStyle" textStylePreferenceValue="NONE">
+		</specification>
+	</extension>
+	
+	<extension point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+		<launchConfigurationTypeImage icon="/icons/launch_type_icon.gif" configTypeID="atl.resource.atl.ui.launchConfigurationType" id="atl.launchImage">
+		</launchConfigurationTypeImage>
+	</extension>
+	
+	<extension point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+		<launchConfigurationTabGroup type="atl.resource.atl.ui.launchConfigurationType" class="atl.resource.atl.ui.launch.AtlLaunchConfigurationTabGroup" id="atl.launchConfigurationTabGroup" helpContextId="atl.launchConfigHelpContext">
+			<launchMode mode="debug" perspective="org.eclipse.debug.ui.DebugPerspective" description="Debug atl model.">
+			</launchMode>
+			<launchMode mode="run" description="Run atl model.">
+			</launchMode>
+		</launchConfigurationTabGroup>
+	</extension>
+	
+	<extension point="org.eclipse.debug.ui.launchShortcuts">
+		<shortcut label="atl Application" icon="/icons/launch_shortcut_icon.gif" helpContextId="atl.launch" modes="run,debug" class="atl.resource.atl.ui.launch.AtlLaunchShortcut" description="Launch a atl model" id="atl.launchShortcut">
+			<description description="Run atl model" mode="run">
+			</description>
+			<description description="Debug atl model" mode="debug">
+			</description>
+			<contextualLaunch>
+				<enablement>
+					<with variable="selection">
+						<count value="1">
+						</count>
+						<iterate>
+							<test property="atl.isLaunchable">
+							</test>
+						</iterate>
+					</with>
+				</enablement>
+			</contextualLaunch>
+			<configurationType id="atl.resource.atl.ui.launchConfigurationType">
+			</configurationType>
+		</shortcut>
+	</extension>
+	
+	<extension point="org.eclipse.core.expressions.propertyTesters">
+		<propertyTester id="atl.PropertyTester" type="java.lang.Object" namespace="atl" properties="isLaunchable" class="atl.resource.atl.ui.AtlPropertyTester">
+		</propertyTester>
+	</extension>
+	
+	<extension point="org.eclipse.ui.editors.annotationTypes">
+		<type name="atl.resource.atl.ui.debug.lineBreakpoint" markerType="atl.resource.atl.debug.lineBreakpoint.marker" super="org.eclipse.debug.core.breakpoint">
+		</type>
+	</extension>
+	
+	<extension point="org.eclipse.ui.editors.markerAnnotationSpecification">
+		<specification annotationType="atl.resource.atl.ui.debug.lineBreakpoint" label="Breakpoints (in .atl files)" icon="/icons/breakpoint_icon.gif" textPreferenceKey="atl.resource.atl.ui.lineBreakpoint" textPreferenceValue="false" highlightPreferenceKey="atl.resource.atl.ui.lineBreakpointHighlighting" highlightPreferenceValue="true" contributesToHeader="false" overviewRulerPreferenceKey="atl.resource.atl.ui.lineBreakpointIndicationInOverviewRuler" overviewRulerPreferenceValue="true" verticalRulerPreferenceKey="atl.resource.atl.ui.lineBreakpointIndicationInVerticalRuler" verticalRulerPreferenceValue="false" colorPreferenceKey="atl.resource.atl.ui.lineBreakpointColor" colorPreferenceValue="212,212,212" presentationLayer="4" showInNextPrevDropdownToolbarActionKey="atl.resource.atl.ui.showLineBreakpointInNextPrevDropdownToolbarAction" showInNextPrevDropdownToolbarAction="true" isGoToNextNavigationTargetKey="atl.resource.atl.ui.isLineBreakpointGoToNextNavigationTarget" isGoToNextNavigationTarget="false" isGoToPreviousNavigationTargetKey="atl.resource.atl.ui.isLineBreakpointGoToPreviousNavigationTarget" isGoToPreviousNavigationTarget="false" textStylePreferenceKey="atl.resource.atl.ui.lineBreakpointTextStyle" textStylePreferenceValue="NONE">
+		</specification>
+	</extension>
+	
+	<extension point="org.eclipse.core.runtime.adapters">
+		<factory adaptableType="atl.resource.atl.ui.AtlEditor" class="atl.resource.atl.ui.debug.AtlAdapterFactory">
+			<adapter type="org.eclipse.debug.ui.actions.IToggleBreakpointsTarget">
+			</adapter>
+		</factory>
+		<factory adaptableType="atl.resource.atl.debug.AtlDebugVariable" class="atl.resource.atl.ui.debug.AtlAdapterFactory">
+			<adapter type="org.eclipse.debug.internal.ui.viewers.model.provisional.IElementLabelProvider">
+			</adapter>
+		</factory>
+		<factory adaptableType="atl.resource.atl.debug.AtlDebugVariable" class="atl.resource.atl.ui.debug.AtlAdapterFactory">
+			<adapter type="org.eclipse.debug.internal.ui.viewers.model.provisional.IElementContentProvider">
+			</adapter>
+		</factory>
+	</extension>
+	
+	<extension point="org.eclipse.ui.popupMenus">
+		<viewerContribution id="atl.resource.atl.ui.RulerPopupActions" targetID="atl.resource.atl.EditorRuler">
+			<action id="atl.resource.atl.ui.toggleBreakpointAction" icon="icons/breakpoint_icon.gif" label="Toggle Breakpoint" class="org.eclipse.debug.ui.actions.RulerToggleBreakpointActionDelegate" menubarPath="debug">
+			</action>
+		</viewerContribution>
+	</extension>
+	
+	<extension point="org.eclipse.ui.editorActions">
+		<editorContribution targetID="atl.resource.atl.ui.AtlEditor" id="atl.resource.atl.ui.BreakpointRulerActions">
+			<action id="atl.resource.atl.ui.debug.RulerToggleBreakpointAction" label="Add breakpoint" class="org.eclipse.debug.ui.actions.RulerToggleBreakpointActionDelegate" actionID="RulerDoubleClick">
+			</action>
+		</editorContribution>
+	</extension>
+	
+	<extension point="org.eclipse.debug.ui.debugModelPresentations">
+		<debugModelPresentation id="atl.resource.atl.debugModel" class="atl.resource.atl.ui.debug.AtlDebugModelPresentation">
+		</debugModelPresentation>
+	</extension>
+	
+</plugin>

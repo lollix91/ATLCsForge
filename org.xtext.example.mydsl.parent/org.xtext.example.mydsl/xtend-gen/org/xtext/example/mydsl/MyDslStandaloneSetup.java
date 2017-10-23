@@ -11,6 +11,7 @@ import org.xtext.example.mydsl.MyDslStandaloneSetupGenerated;
 @SuppressWarnings("all")
 public class MyDslStandaloneSetup extends MyDslStandaloneSetupGenerated {
   public static void doSetup() {
-    new MyDslStandaloneSetup().createInjectorAndDoEMFRegistration();
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method createInjectorAndDoEMFRegistration() is undefined for the type MyDslStandaloneSetup");
   }
 }

@@ -3,61 +3,43 @@
  */
 package org.xtext.example.mydsl.formatting2;
 
-import atl.Helper;
 import atl.Library;
-import atl.LibraryRef;
 import atl.Unit;
-import com.google.inject.Inject;
 import java.util.Arrays;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.xtext.formatting2.AbstractFormatter2;
-import org.eclipse.xtext.formatting2.IFormattableDocument;
-import org.eclipse.xtext.resource.XtextResource;
-import org.eclipse.xtext.xbase.lib.Extension;
 import org.xtext.example.mydsl.services.MyDslGrammarAccess;
 
 @SuppressWarnings("all")
-public class MyDslFormatter extends AbstractFormatter2 {
-  @Inject
-  @Extension
-  private MyDslGrammarAccess _myDslGrammarAccess;
+public class MyDslFormatter /* implements AbstractFormatter2  */{
+  /* @Inject
+   */private MyDslGrammarAccess _myDslGrammarAccess;
   
-  protected void _format(final Unit unit, @Extension final IFormattableDocument document) {
-    EList<LibraryRef> _libraries = unit.getLibraries();
-    for (final LibraryRef libraryRef : _libraries) {
-      document.<LibraryRef>format(libraryRef);
-    }
+  protected void _format(final Unit unit, final /* IFormattableDocument */Object document) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method getLibraries() is undefined for the type Unit"
+      + "\nInvalid number of arguments. The method format(Unit, IFormattableDocument) is not applicable for the arguments (LibraryRef)"
+      + "\nType mismatch: cannot convert from LibraryRef to Unit"
+      + "\nThe method format(Unit, IFormattableDocument) from the type MyDslFormatter refers to the missing type IFormattableDocument");
   }
   
-  protected void _format(final Library library, @Extension final IFormattableDocument document) {
-    EList<LibraryRef> _libraries = library.getLibraries();
-    for (final LibraryRef libraryRef : _libraries) {
-      document.<LibraryRef>format(libraryRef);
-    }
-    EList<Helper> _helpers = library.getHelpers();
-    for (final Helper helper : _helpers) {
-      document.<Helper>format(helper);
-    }
+  protected void _format(final Library library, final /* IFormattableDocument */Object document) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method getLibraries() is undefined for the type Library"
+      + "\nThe method getHelpers() is undefined for the type Library"
+      + "\nInvalid number of arguments. The method format(Unit, IFormattableDocument) is not applicable for the arguments (LibraryRef)"
+      + "\nInvalid number of arguments. The method format(Unit, IFormattableDocument) is not applicable for the arguments (Helper)"
+      + "\nType mismatch: cannot convert from LibraryRef to Unit"
+      + "\nType mismatch: cannot convert from Helper to Unit"
+      + "\nThe method format(Unit, IFormattableDocument) from the type MyDslFormatter refers to the missing type IFormattableDocument"
+      + "\nThe method format(Unit, IFormattableDocument) from the type MyDslFormatter refers to the missing type IFormattableDocument");
   }
   
-  public void format(final Object library, final IFormattableDocument document) {
-    if (library instanceof Library) {
+  public void format(final Unit library, final IFormattableDocument document) {
+    if (library instanceof Library
+         && document != null) {
       _format((Library)library, document);
       return;
-    } else if (library instanceof XtextResource) {
-      _format((XtextResource)library, document);
-      return;
-    } else if (library instanceof Unit) {
-      _format((Unit)library, document);
-      return;
-    } else if (library instanceof EObject) {
-      _format((EObject)library, document);
-      return;
-    } else if (library == null) {
-      _format((Void)null, document);
-      return;
-    } else if (library != null) {
+    } else if (library != null
+         && document != null) {
       _format(library, document);
       return;
     } else {
