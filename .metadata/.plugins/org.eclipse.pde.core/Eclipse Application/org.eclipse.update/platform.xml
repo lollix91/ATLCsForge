@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<config date="1508280724671" transient="false" version="3.0">
+<config date="1508899569433" transient="false" version="3.0">
 <site enabled="true" policy="USER-EXCLUDE" updateable="true" url="platform:/base/">
 <feature id="org.eclipse.ecf.filetransfer.httpclient4.feature" url="features/org.eclipse.ecf.filetransfer.httpclient4.feature_3.13.2.v20160823-2221/" version="3.13.2.v20160823-2221">
 </feature>
@@ -41,7 +41,11 @@
 </feature>
 <feature id="org.eclipse.jpt.jpa.feature" plugin-identifier="org.eclipse.jpt.jpa.branding" url="features/org.eclipse.jpt.jpa.feature_3.5.0.v201603181811/" version="3.5.0.v201603181811">
 </feature>
+<feature id="org.eclipse.emf.ecore.xcore.ui" url="features/org.eclipse.emf.ecore.xcore.ui_1.0.1.v20130212-0719/" version="1.0.1.v20130212-0719">
+</feature>
 <feature id="org.eclipse.ecf.core.ssl.source.feature" url="features/org.eclipse.ecf.core.ssl.source.feature_1.1.0.v20160823-2221/" version="1.1.0.v20160823-2221">
+</feature>
+<feature id="org.eclipse.emf.ecore.xcore.source" url="features/org.eclipse.emf.ecore.xcore.source_1.0.2.v20130212-0719/" version="1.0.2.v20130212-0719">
 </feature>
 <feature id="org.eclipse.oomph.p2" url="features/org.eclipse.oomph.p2_1.6.0.v20161128-0924/" version="1.6.0.v20161128-0924">
 </feature>
@@ -82,6 +86,8 @@
 <feature id="org.eclipse.aether.feature" url="features/org.eclipse.aether.feature_1.0.1.v20141111/" version="1.0.1.v20141111">
 </feature>
 <feature id="org.eclipse.emf.ecore.source" url="features/org.eclipse.emf.ecore.source_2.12.0.v20160420-0247/" version="2.12.0.v20160420-0247">
+</feature>
+<feature id="org.eclipse.emf.ecore.xcore.sdk" url="features/org.eclipse.emf.ecore.xcore.sdk_1.0.2.v20130212-0719/" version="1.0.2.v20130212-0719">
 </feature>
 <feature id="org.eclipse.ecf.filetransfer.source.feature" url="features/org.eclipse.ecf.filetransfer.source.feature_3.13.2.v20160823-2221/" version="3.13.2.v20160823-2221">
 </feature>
@@ -305,6 +311,8 @@
 </feature>
 <feature id="org.eclipse.wst.jsdt.feature" plugin-identifier="org.eclipse.wst.jsdt.ui" url="features/org.eclipse.wst.jsdt.feature_2.0.0.v201608301904/" version="2.0.0.v201608301904">
 </feature>
+<feature id="org.eclipse.emf.ecore.xcore.ui.source" url="features/org.eclipse.emf.ecore.xcore.ui.source_1.0.1.v20130212-0719/" version="1.0.1.v20130212-0719">
+</feature>
 <feature id="org.eclipse.gmf.runtime.notation.source" url="features/org.eclipse.gmf.runtime.notation.source_1.10.0.201606071631/" version="1.10.0.201606071631">
 </feature>
 <feature id="org.eclipse.tm.terminal.connector.ssh.feature" plugin-identifier="org.eclipse.tm.terminal.ssh" url="features/org.eclipse.tm.terminal.connector.ssh.feature_4.2.0.201611281915/" version="4.2.0.201611281915">
@@ -511,8 +519,6 @@
 </feature>
 <feature id="org.eclipse.equinox.p2.rcp.feature" url="features/org.eclipse.equinox.p2.rcp.feature_1.2.201.v20161124-1529/" version="1.2.201.v20161124-1529">
 </feature>
-<feature id="org.eclipse.ocl.master" url="features/org.eclipse.ocl.master_6.3.0.v20170613-1432/" version="6.3.0.v20170613-1432">
-</feature>
 <feature id="org.eclipse.jst.web_core.feature" url="features/org.eclipse.jst.web_core.feature_3.8.0.v201608191717/" version="3.8.0.v201608191717">
 </feature>
 <feature id="org.eclipse.emf.codegen.source" url="features/org.eclipse.emf.codegen.source_2.11.0.v20160526-0356/" version="2.11.0.v20160526-0356">
@@ -524,6 +530,8 @@
 <feature id="org.eclipse.epp.mpc" plugin-identifier="org.eclipse.epp.mpc.ui" url="features/org.eclipse.epp.mpc_1.5.3.v20161116-1851/" version="1.5.3.v20161116-1851">
 </feature>
 <feature id="org.eclipse.cft.server.ui.feature" plugin-identifier="org.eclipse.cft.server.branding.ui" url="features/org.eclipse.cft.server.ui.feature_1.0.7.v201611302157/" version="1.0.7.v201611302157">
+</feature>
+<feature id="org.eclipse.emf.ecore.xcore" url="features/org.eclipse.emf.ecore.xcore_1.0.2.v20130212-0719/" version="1.0.2.v20130212-0719">
 </feature>
 <feature id="org.eclipse.ocl.examples.source" url="features/org.eclipse.ocl.examples.source_6.3.0.v20170613-1432/" version="6.3.0.v20170613-1432">
 </feature>
