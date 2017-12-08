@@ -1,0 +1,3 @@
+Per integrare il progetto Xtext per il web:
+1. Quando create il progetto Xtext premere Next poi selezionare web_integration e usare Maven come build
+2. Ora nel progetto ci sarà una cartella .web con un file nella cartella src chiamato ServerLauncher.xtend: potente provare l'editor lanciando questo file come applicazione Java e provandola su localhost
