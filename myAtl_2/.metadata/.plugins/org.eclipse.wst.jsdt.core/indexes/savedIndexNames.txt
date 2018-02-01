@@ -1,0 +1,7 @@
+INDEX VERSION 1.3+C:\Users\claudio\workspace\myAtl_2\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+385494718.index
+3083386083.index
+3752581075.index
+745678910.index
+2386691591.index
+3864521755.index
