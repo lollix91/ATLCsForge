@@ -10,6 +10,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyAtl.ecore#//Module/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyAtl.ecore#//Module/outModels"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyAtl.ecore#//Module/inModels"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyAtl.ecore#//Module/varName"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyAtl.ecore#//Module/elements"/>
     </genClasses>
     <genClasses ecoreClass="MyAtl.ecore#//ModuleElement">
@@ -25,6 +26,10 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyAtl.ecore#//CalledRule/variables"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyAtl.ecore#//CalledRule/outPattern"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyAtl.ecore#//CalledRule/actionBlock"/>
+    </genClasses>
+    <genClasses ecoreClass="MyAtl.ecore#//QueryRule">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyAtl.ecore#//QueryRule/parameters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyAtl.ecore#//QueryRule/initExpression"/>
     </genClasses>
     <genClasses ecoreClass="MyAtl.ecore#//Helper">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyAtl.ecore#//Helper/definition"/>
@@ -176,6 +181,9 @@
     </genClasses>
     <genClasses ecoreClass="MyAtl.ecore#//SelfExpCS"/>
     <genClasses ecoreClass="MyAtl.ecore#//PrimaryExpCS"/>
+    <genClasses ecoreClass="MyAtl.ecore#//StringExpCs">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyAtl.ecore#//StringExpCs/name"/>
+    </genClasses>
     <genClasses ecoreClass="MyAtl.ecore#//NameExpCS">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyAtl.ecore#//NameExpCS/namespace"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyAtl.ecore#//NameExpCS/element"/>

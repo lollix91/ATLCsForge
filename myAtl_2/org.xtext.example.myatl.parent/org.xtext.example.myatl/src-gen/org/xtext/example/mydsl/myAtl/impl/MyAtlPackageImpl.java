@@ -59,10 +59,12 @@ import org.xtext.example.mydsl.myAtl.PrefixedExpCS;
 import org.xtext.example.mydsl.myAtl.PrimaryExpCS;
 import org.xtext.example.mydsl.myAtl.PrimitiveLiteralExpCS;
 import org.xtext.example.mydsl.myAtl.PrimitiveTypeCS;
+import org.xtext.example.mydsl.myAtl.QueryRule;
 import org.xtext.example.mydsl.myAtl.RuleVariableDeclaration;
 import org.xtext.example.mydsl.myAtl.SelfExpCS;
 import org.xtext.example.mydsl.myAtl.SimpleOutPatternElement;
 import org.xtext.example.mydsl.myAtl.Statement;
+import org.xtext.example.mydsl.myAtl.StringExpCs;
 import org.xtext.example.mydsl.myAtl.StringLiteralExpCS;
 import org.xtext.example.mydsl.myAtl.TupleLiteralExpCS;
 import org.xtext.example.mydsl.myAtl.TupleLiteralPartCS;
@@ -110,6 +112,13 @@ public class MyAtlPackageImpl extends EPackageImpl implements MyAtlPackage
    * @generated
    */
   private EClass calledRuleEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass queryRuleEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -431,6 +440,13 @@ public class MyAtlPackageImpl extends EPackageImpl implements MyAtlPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass stringExpCsEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass nameExpCSEClass = null;
 
   /**
@@ -625,9 +641,19 @@ public class MyAtlPackageImpl extends EPackageImpl implements MyAtlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getModule_Elements()
+  public EReference getModule_VarName()
   {
     return (EReference)moduleEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getModule_Elements()
+  {
+    return (EReference)moduleEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -738,6 +764,36 @@ public class MyAtlPackageImpl extends EPackageImpl implements MyAtlPackage
   public EReference getCalledRule_ActionBlock()
   {
     return (EReference)calledRuleEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getQueryRule()
+  {
+    return queryRuleEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getQueryRule_Parameters()
+  {
+    return (EReference)queryRuleEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getQueryRule_InitExpression()
+  {
+    return (EReference)queryRuleEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1905,6 +1961,26 @@ public class MyAtlPackageImpl extends EPackageImpl implements MyAtlPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getStringExpCs()
+  {
+    return stringExpCsEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getStringExpCs_Name()
+  {
+    return (EAttribute)stringExpCsEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getNameExpCS()
   {
     return nameExpCSEClass;
@@ -2184,6 +2260,7 @@ public class MyAtlPackageImpl extends EPackageImpl implements MyAtlPackage
     createEAttribute(moduleEClass, MODULE__NAME);
     createEReference(moduleEClass, MODULE__OUT_MODELS);
     createEReference(moduleEClass, MODULE__IN_MODELS);
+    createEReference(moduleEClass, MODULE__VAR_NAME);
     createEReference(moduleEClass, MODULE__ELEMENTS);
 
     moduleElementEClass = createEClass(MODULE_ELEMENT);
@@ -2199,6 +2276,10 @@ public class MyAtlPackageImpl extends EPackageImpl implements MyAtlPackage
     createEReference(calledRuleEClass, CALLED_RULE__VARIABLES);
     createEReference(calledRuleEClass, CALLED_RULE__OUT_PATTERN);
     createEReference(calledRuleEClass, CALLED_RULE__ACTION_BLOCK);
+
+    queryRuleEClass = createEClass(QUERY_RULE);
+    createEReference(queryRuleEClass, QUERY_RULE__PARAMETERS);
+    createEReference(queryRuleEClass, QUERY_RULE__INIT_EXPRESSION);
 
     helperEClass = createEClass(HELPER);
     createEReference(helperEClass, HELPER__DEFINITION);
@@ -2361,6 +2442,9 @@ public class MyAtlPackageImpl extends EPackageImpl implements MyAtlPackage
 
     primaryExpCSEClass = createEClass(PRIMARY_EXP_CS);
 
+    stringExpCsEClass = createEClass(STRING_EXP_CS);
+    createEAttribute(stringExpCsEClass, STRING_EXP_CS__NAME);
+
     nameExpCSEClass = createEClass(NAME_EXP_CS);
     createEAttribute(nameExpCSEClass, NAME_EXP_CS__NAMESPACE);
     createEAttribute(nameExpCSEClass, NAME_EXP_CS__ELEMENT);
@@ -2431,6 +2515,7 @@ public class MyAtlPackageImpl extends EPackageImpl implements MyAtlPackage
     // Add supertypes to classes
     matchedRuleEClass.getESuperTypes().add(this.getModuleElement());
     calledRuleEClass.getESuperTypes().add(this.getModuleElement());
+    queryRuleEClass.getESuperTypes().add(this.getModuleElement());
     helperEClass.getESuperTypes().add(this.getModuleElement());
     simpleOutPatternElementEClass.getESuperTypes().add(this.getOutPatternElement());
     forEachOutPatternElementEClass.getESuperTypes().add(this.getOutPatternElement());
@@ -2453,6 +2538,7 @@ public class MyAtlPackageImpl extends EPackageImpl implements MyAtlPackage
     nestedExpCSEClass.getESuperTypes().add(this.getPrimaryExpCS());
     selfExpCSEClass.getESuperTypes().add(this.getPrimaryExpCS());
     primaryExpCSEClass.getESuperTypes().add(this.getPrefixedExpCS());
+    stringExpCsEClass.getESuperTypes().add(this.getPrimaryExpCS());
     nameExpCSEClass.getESuperTypes().add(this.getIndexExpCS());
     expCSEClass.getESuperTypes().add(this.getNavigatingArgExpCS());
     infixedExpCSEClass.getESuperTypes().add(this.getExpCS());
@@ -2470,6 +2556,7 @@ public class MyAtlPackageImpl extends EPackageImpl implements MyAtlPackage
     initEAttribute(getModule_Name(), ecorePackage.getEString(), "name", null, 0, 1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModule_OutModels(), this.getNameExpCS(), null, "outModels", null, 0, -1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModule_InModels(), this.getNameExpCS(), null, "inModels", null, 0, -1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModule_VarName(), this.getNameExpCS(), null, "varName", null, 0, 1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModule_Elements(), this.getModuleElement(), null, "elements", null, 0, -1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(moduleElementEClass, ModuleElement.class, "ModuleElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2485,6 +2572,10 @@ public class MyAtlPackageImpl extends EPackageImpl implements MyAtlPackage
     initEReference(getCalledRule_Variables(), this.getRuleVariableDeclaration(), null, "variables", null, 0, -1, CalledRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCalledRule_OutPattern(), this.getOutPattern(), null, "outPattern", null, 0, 1, CalledRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCalledRule_ActionBlock(), this.getActionBlock(), null, "actionBlock", null, 0, 1, CalledRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(queryRuleEClass, QueryRule.class, "QueryRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getQueryRule_Parameters(), this.getATLParameterCS(), null, "parameters", null, 0, -1, QueryRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getQueryRule_InitExpression(), this.getExpCS(), null, "initExpression", null, 0, 1, QueryRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(helperEClass, Helper.class, "Helper", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getHelper_Definition(), this.getATLDefCS(), null, "definition", null, 0, 1, Helper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2646,6 +2737,9 @@ public class MyAtlPackageImpl extends EPackageImpl implements MyAtlPackage
     initEClass(selfExpCSEClass, SelfExpCS.class, "SelfExpCS", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(primaryExpCSEClass, PrimaryExpCS.class, "PrimaryExpCS", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(stringExpCsEClass, StringExpCs.class, "StringExpCs", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getStringExpCs_Name(), ecorePackage.getEString(), "name", null, 0, 1, StringExpCs.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(nameExpCSEClass, NameExpCS.class, "NameExpCS", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getNameExpCS_Namespace(), ecorePackage.getEString(), "namespace", null, 0, -1, NameExpCS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

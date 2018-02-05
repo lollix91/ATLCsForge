@@ -69,6 +69,7 @@ public class MyAtlFactoryImpl extends EFactoryImpl implements MyAtlFactory
       case MyAtlPackage.MODULE_ELEMENT: return createModuleElement();
       case MyAtlPackage.MATCHED_RULE: return createMatchedRule();
       case MyAtlPackage.CALLED_RULE: return createCalledRule();
+      case MyAtlPackage.QUERY_RULE: return createQueryRule();
       case MyAtlPackage.HELPER: return createHelper();
       case MyAtlPackage.ATL_DEF_CS: return createATLDefCS();
       case MyAtlPackage.ATL_PARAMETER_CS: return createATLParameterCS();
@@ -114,6 +115,7 @@ public class MyAtlFactoryImpl extends EFactoryImpl implements MyAtlFactory
       case MyAtlPackage.NESTED_EXP_CS: return createNestedExpCS();
       case MyAtlPackage.SELF_EXP_CS: return createSelfExpCS();
       case MyAtlPackage.PRIMARY_EXP_CS: return createPrimaryExpCS();
+      case MyAtlPackage.STRING_EXP_CS: return createStringExpCs();
       case MyAtlPackage.NAME_EXP_CS: return createNameExpCS();
       case MyAtlPackage.EXP_CS: return createExpCS();
       case MyAtlPackage.INFIXED_EXP_CS: return createInfixedExpCS();
@@ -174,6 +176,17 @@ public class MyAtlFactoryImpl extends EFactoryImpl implements MyAtlFactory
   {
     CalledRuleImpl calledRule = new CalledRuleImpl();
     return calledRule;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public QueryRule createQueryRule()
+  {
+    QueryRuleImpl queryRule = new QueryRuleImpl();
+    return queryRule;
   }
 
   /**
@@ -669,6 +682,17 @@ public class MyAtlFactoryImpl extends EFactoryImpl implements MyAtlFactory
   {
     PrimaryExpCSImpl primaryExpCS = new PrimaryExpCSImpl();
     return primaryExpCS;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public StringExpCs createStringExpCs()
+  {
+    StringExpCsImpl stringExpCs = new StringExpCsImpl();
+    return stringExpCs;
   }
 
   /**

@@ -95,13 +95,22 @@ public interface MyAtlPackage extends EPackage
   int MODULE__IN_MODELS = 2;
 
   /**
+   * The feature id for the '<em><b>Var Name</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODULE__VAR_NAME = 3;
+
+  /**
    * The feature id for the '<em><b>Elements</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODULE__ELEMENTS = 3;
+  int MODULE__ELEMENTS = 4;
 
   /**
    * The number of structural features of the '<em>Module</em>' class.
@@ -110,7 +119,7 @@ public interface MyAtlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODULE_FEATURE_COUNT = 4;
+  int MODULE_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myAtl.impl.ModuleElementImpl <em>Module Element</em>}' class.
@@ -260,6 +269,52 @@ public interface MyAtlPackage extends EPackage
   int CALLED_RULE_FEATURE_COUNT = MODULE_ELEMENT_FEATURE_COUNT + 3;
 
   /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myAtl.impl.QueryRuleImpl <em>Query Rule</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myAtl.impl.QueryRuleImpl
+   * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getQueryRule()
+   * @generated
+   */
+  int QUERY_RULE = 4;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int QUERY_RULE__NAME = MODULE_ELEMENT__NAME;
+
+  /**
+   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int QUERY_RULE__PARAMETERS = MODULE_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Init Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int QUERY_RULE__INIT_EXPRESSION = MODULE_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Query Rule</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int QUERY_RULE_FEATURE_COUNT = MODULE_ELEMENT_FEATURE_COUNT + 2;
+
+  /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myAtl.impl.HelperImpl <em>Helper</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -267,7 +322,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getHelper()
    * @generated
    */
-  int HELPER = 4;
+  int HELPER = 5;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -304,7 +359,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getATLDefCS()
    * @generated
    */
-  int ATL_DEF_CS = 5;
+  int ATL_DEF_CS = 6;
 
   /**
    * The feature id for the '<em><b>Var Name</b></em>' attribute.
@@ -359,7 +414,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getATLParameterCS()
    * @generated
    */
-  int ATL_PARAMETER_CS = 6;
+  int ATL_PARAMETER_CS = 7;
 
   /**
    * The feature id for the '<em><b>Var Name</b></em>' attribute.
@@ -396,7 +451,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getRuleVariableDeclaration()
    * @generated
    */
-  int RULE_VARIABLE_DECLARATION = 7;
+  int RULE_VARIABLE_DECLARATION = 8;
 
   /**
    * The feature id for the '<em><b>Var Name</b></em>' attribute.
@@ -442,7 +497,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getInPattern()
    * @generated
    */
-  int IN_PATTERN = 8;
+  int IN_PATTERN = 9;
 
   /**
    * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -479,7 +534,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getInPatternElement()
    * @generated
    */
-  int IN_PATTERN_ELEMENT = 9;
+  int IN_PATTERN_ELEMENT = 10;
 
   /**
    * The feature id for the '<em><b>Var Name</b></em>' attribute.
@@ -516,7 +571,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getOutPattern()
    * @generated
    */
-  int OUT_PATTERN = 10;
+  int OUT_PATTERN = 11;
 
   /**
    * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -544,7 +599,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getOutPatternElement()
    * @generated
    */
-  int OUT_PATTERN_ELEMENT = 11;
+  int OUT_PATTERN_ELEMENT = 12;
 
   /**
    * The number of structural features of the '<em>Out Pattern Element</em>' class.
@@ -563,7 +618,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getSimpleOutPatternElement()
    * @generated
    */
-  int SIMPLE_OUT_PATTERN_ELEMENT = 12;
+  int SIMPLE_OUT_PATTERN_ELEMENT = 13;
 
   /**
    * The feature id for the '<em><b>Var Name</b></em>' attribute.
@@ -609,7 +664,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getForEachOutPatternElement()
    * @generated
    */
-  int FOR_EACH_OUT_PATTERN_ELEMENT = 13;
+  int FOR_EACH_OUT_PATTERN_ELEMENT = 14;
 
   /**
    * The feature id for the '<em><b>Collection</b></em>' containment reference.
@@ -637,7 +692,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getBinding()
    * @generated
    */
-  int BINDING = 14;
+  int BINDING = 15;
 
   /**
    * The feature id for the '<em><b>Property Name</b></em>' attribute.
@@ -674,7 +729,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getActionBlock()
    * @generated
    */
-  int ACTION_BLOCK = 15;
+  int ACTION_BLOCK = 16;
 
   /**
    * The feature id for the '<em><b>Statements</b></em>' containment reference list.
@@ -702,7 +757,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getStatement()
    * @generated
    */
-  int STATEMENT = 16;
+  int STATEMENT = 17;
 
   /**
    * The number of structural features of the '<em>Statement</em>' class.
@@ -721,7 +776,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getBindingStat()
    * @generated
    */
-  int BINDING_STAT = 17;
+  int BINDING_STAT = 18;
 
   /**
    * The feature id for the '<em><b>Source</b></em>' containment reference.
@@ -767,7 +822,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getATLType()
    * @generated
    */
-  int ATL_TYPE = 18;
+  int ATL_TYPE = 19;
 
   /**
    * The feature id for the '<em><b>Model Name</b></em>' attribute.
@@ -804,7 +859,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getTypeExpCS()
    * @generated
    */
-  int TYPE_EXP_CS = 37;
+  int TYPE_EXP_CS = 38;
 
   /**
    * The number of structural features of the '<em>Type Exp CS</em>' class.
@@ -823,7 +878,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getTypeLiteralCS()
    * @generated
    */
-  int TYPE_LITERAL_CS = 34;
+  int TYPE_LITERAL_CS = 35;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -851,7 +906,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getCollectionTypeCS()
    * @generated
    */
-  int COLLECTION_TYPE_CS = 19;
+  int COLLECTION_TYPE_CS = 20;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -888,7 +943,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getTupleTypeCS()
    * @generated
    */
-  int TUPLE_TYPE_CS = 20;
+  int TUPLE_TYPE_CS = 21;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -934,7 +989,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#gettuplePartCS()
    * @generated
    */
-  int TUPLE_PART_CS = 21;
+  int TUPLE_PART_CS = 22;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -971,7 +1026,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getCollectionLiteralExpCS()
    * @generated
    */
-  int COLLECTION_LITERAL_EXP_CS = 22;
+  int COLLECTION_LITERAL_EXP_CS = 23;
 
   /**
    * The feature id for the '<em><b>Owned Type</b></em>' containment reference.
@@ -1008,7 +1063,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getCollectionLiteralPartCS()
    * @generated
    */
-  int COLLECTION_LITERAL_PART_CS = 23;
+  int COLLECTION_LITERAL_PART_CS = 24;
 
   /**
    * The feature id for the '<em><b>Expression CS</b></em>' containment reference.
@@ -1045,7 +1100,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getNavigatingArgExpCS()
    * @generated
    */
-  int NAVIGATING_ARG_EXP_CS = 42;
+  int NAVIGATING_ARG_EXP_CS = 43;
 
   /**
    * The number of structural features of the '<em>Navigating Arg Exp CS</em>' class.
@@ -1064,7 +1119,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getExpCS()
    * @generated
    */
-  int EXP_CS = 50;
+  int EXP_CS = 52;
 
   /**
    * The number of structural features of the '<em>Exp CS</em>' class.
@@ -1083,7 +1138,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getInfixedExpCS()
    * @generated
    */
-  int INFIXED_EXP_CS = 51;
+  int INFIXED_EXP_CS = 53;
 
   /**
    * The number of structural features of the '<em>Infixed Exp CS</em>' class.
@@ -1102,7 +1157,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getPrefixedExpCS()
    * @generated
    */
-  int PREFIXED_EXP_CS = 55;
+  int PREFIXED_EXP_CS = 57;
 
   /**
    * The number of structural features of the '<em>Prefixed Exp CS</em>' class.
@@ -1121,7 +1176,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getPrimaryExpCS()
    * @generated
    */
-  int PRIMARY_EXP_CS = 48;
+  int PRIMARY_EXP_CS = 49;
 
   /**
    * The number of structural features of the '<em>Primary Exp CS</em>' class.
@@ -1140,7 +1195,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getPrimitiveLiteralExpCS()
    * @generated
    */
-  int PRIMITIVE_LITERAL_EXP_CS = 24;
+  int PRIMITIVE_LITERAL_EXP_CS = 25;
 
   /**
    * The number of structural features of the '<em>Primitive Literal Exp CS</em>' class.
@@ -1159,7 +1214,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getTupleLiteralExpCS()
    * @generated
    */
-  int TUPLE_LITERAL_EXP_CS = 25;
+  int TUPLE_LITERAL_EXP_CS = 26;
 
   /**
    * The feature id for the '<em><b>Owned Parts</b></em>' containment reference list.
@@ -1187,7 +1242,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getTupleLiteralPartCS()
    * @generated
    */
-  int TUPLE_LITERAL_PART_CS = 26;
+  int TUPLE_LITERAL_PART_CS = 27;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1233,7 +1288,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getNumberLiteralExpCS()
    * @generated
    */
-  int NUMBER_LITERAL_EXP_CS = 27;
+  int NUMBER_LITERAL_EXP_CS = 28;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1261,7 +1316,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getStringLiteralExpCS()
    * @generated
    */
-  int STRING_LITERAL_EXP_CS = 28;
+  int STRING_LITERAL_EXP_CS = 29;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute list.
@@ -1289,7 +1344,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getBooleanLiteralExpCS()
    * @generated
    */
-  int BOOLEAN_LITERAL_EXP_CS = 29;
+  int BOOLEAN_LITERAL_EXP_CS = 30;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1317,7 +1372,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getUnlimitedNaturalLiteralExpCS()
    * @generated
    */
-  int UNLIMITED_NATURAL_LITERAL_EXP_CS = 30;
+  int UNLIMITED_NATURAL_LITERAL_EXP_CS = 31;
 
   /**
    * The number of structural features of the '<em>Unlimited Natural Literal Exp CS</em>' class.
@@ -1336,7 +1391,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getInvalidLiteralExpCS()
    * @generated
    */
-  int INVALID_LITERAL_EXP_CS = 31;
+  int INVALID_LITERAL_EXP_CS = 32;
 
   /**
    * The number of structural features of the '<em>Invalid Literal Exp CS</em>' class.
@@ -1355,7 +1410,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getNullLiteralExpCS()
    * @generated
    */
-  int NULL_LITERAL_EXP_CS = 32;
+  int NULL_LITERAL_EXP_CS = 33;
 
   /**
    * The number of structural features of the '<em>Null Literal Exp CS</em>' class.
@@ -1374,7 +1429,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getPrimitiveTypeCS()
    * @generated
    */
-  int PRIMITIVE_TYPE_CS = 33;
+  int PRIMITIVE_TYPE_CS = 34;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1402,7 +1457,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getTypeLiteralExpCS()
    * @generated
    */
-  int TYPE_LITERAL_EXP_CS = 35;
+  int TYPE_LITERAL_EXP_CS = 36;
 
   /**
    * The feature id for the '<em><b>Owned Type</b></em>' containment reference.
@@ -1430,7 +1485,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getTypeNameExpCS()
    * @generated
    */
-  int TYPE_NAME_EXP_CS = 36;
+  int TYPE_NAME_EXP_CS = 37;
 
   /**
    * The feature id for the '<em><b>Namespace</b></em>' attribute list.
@@ -1467,7 +1522,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getNavigatingArgCS()
    * @generated
    */
-  int NAVIGATING_ARG_CS = 38;
+  int NAVIGATING_ARG_CS = 39;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' containment reference.
@@ -1513,7 +1568,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getNavigatingBarArgCS()
    * @generated
    */
-  int NAVIGATING_BAR_ARG_CS = 39;
+  int NAVIGATING_BAR_ARG_CS = 40;
 
   /**
    * The feature id for the '<em><b>Prefix</b></em>' attribute.
@@ -1568,7 +1623,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getNavigatingCommaArgCS()
    * @generated
    */
-  int NAVIGATING_COMMA_ARG_CS = 40;
+  int NAVIGATING_COMMA_ARG_CS = 41;
 
   /**
    * The feature id for the '<em><b>Prefix</b></em>' attribute.
@@ -1623,7 +1678,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getNavigatingSemiArgCS()
    * @generated
    */
-  int NAVIGATING_SEMI_ARG_CS = 41;
+  int NAVIGATING_SEMI_ARG_CS = 42;
 
   /**
    * The feature id for the '<em><b>Prefix</b></em>' attribute.
@@ -1678,7 +1733,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getIfExpCS()
    * @generated
    */
-  int IF_EXP_CS = 43;
+  int IF_EXP_CS = 44;
 
   /**
    * The feature id for the '<em><b>Condition</b></em>' containment reference.
@@ -1724,7 +1779,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getLetExpCS()
    * @generated
    */
-  int LET_EXP_CS = 44;
+  int LET_EXP_CS = 45;
 
   /**
    * The feature id for the '<em><b>Variable</b></em>' containment reference list.
@@ -1761,7 +1816,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getLetVariableCS()
    * @generated
    */
-  int LET_VARIABLE_CS = 45;
+  int LET_VARIABLE_CS = 46;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1807,7 +1862,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getNestedExpCS()
    * @generated
    */
-  int NESTED_EXP_CS = 46;
+  int NESTED_EXP_CS = 47;
 
   /**
    * The feature id for the '<em><b>Source</b></em>' containment reference.
@@ -1835,7 +1890,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getSelfExpCS()
    * @generated
    */
-  int SELF_EXP_CS = 47;
+  int SELF_EXP_CS = 48;
 
   /**
    * The number of structural features of the '<em>Self Exp CS</em>' class.
@@ -1847,6 +1902,34 @@ public interface MyAtlPackage extends EPackage
   int SELF_EXP_CS_FEATURE_COUNT = PRIMARY_EXP_CS_FEATURE_COUNT + 0;
 
   /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myAtl.impl.StringExpCsImpl <em>String Exp Cs</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myAtl.impl.StringExpCsImpl
+   * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getStringExpCs()
+   * @generated
+   */
+  int STRING_EXP_CS = 50;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRING_EXP_CS__NAME = PRIMARY_EXP_CS_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>String Exp Cs</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRING_EXP_CS_FEATURE_COUNT = PRIMARY_EXP_CS_FEATURE_COUNT + 1;
+
+  /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myAtl.impl.NavigatingExpCSImpl <em>Navigating Exp CS</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1854,7 +1937,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getNavigatingExpCS()
    * @generated
    */
-  int NAVIGATING_EXP_CS = 59;
+  int NAVIGATING_EXP_CS = 61;
 
   /**
    * The feature id for the '<em><b>Named Exp</b></em>' containment reference.
@@ -1891,7 +1974,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getNavigatingExpCS_Base()
    * @generated
    */
-  int NAVIGATING_EXP_CS_BASE = 58;
+  int NAVIGATING_EXP_CS_BASE = 60;
 
   /**
    * The feature id for the '<em><b>Named Exp</b></em>' containment reference.
@@ -1928,7 +2011,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getIndexExpCS()
    * @generated
    */
-  int INDEX_EXP_CS = 57;
+  int INDEX_EXP_CS = 59;
 
   /**
    * The feature id for the '<em><b>Named Exp</b></em>' containment reference.
@@ -1983,7 +2066,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getNameExpCS()
    * @generated
    */
-  int NAME_EXP_CS = 49;
+  int NAME_EXP_CS = 51;
 
   /**
    * The feature id for the '<em><b>Named Exp</b></em>' containment reference.
@@ -2056,7 +2139,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getBinaryOperatorCS()
    * @generated
    */
-  int BINARY_OPERATOR_CS = 52;
+  int BINARY_OPERATOR_CS = 54;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2084,7 +2167,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getInfixOperatorCS()
    * @generated
    */
-  int INFIX_OPERATOR_CS = 53;
+  int INFIX_OPERATOR_CS = 55;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2112,7 +2195,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getNavigationOperatorCS()
    * @generated
    */
-  int NAVIGATION_OPERATOR_CS = 54;
+  int NAVIGATION_OPERATOR_CS = 56;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2140,7 +2223,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getUnaryOperatorCS()
    * @generated
    */
-  int UNARY_OPERATOR_CS = 56;
+  int UNARY_OPERATOR_CS = 58;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2168,7 +2251,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getInfixExpCS()
    * @generated
    */
-  int INFIX_EXP_CS = 60;
+  int INFIX_EXP_CS = 62;
 
   /**
    * The feature id for the '<em><b>Owned Expression</b></em>' containment reference list.
@@ -2205,7 +2288,7 @@ public interface MyAtlPackage extends EPackage
    * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getPrefixExpCS()
    * @generated
    */
-  int PREFIX_EXP_CS = 61;
+  int PREFIX_EXP_CS = 63;
 
   /**
    * The feature id for the '<em><b>Owned Operator</b></em>' containment reference list.
@@ -2277,6 +2360,17 @@ public interface MyAtlPackage extends EPackage
    * @generated
    */
   EReference getModule_InModels();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myAtl.Module#getVarName <em>Var Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Var Name</em>'.
+   * @see org.xtext.example.mydsl.myAtl.Module#getVarName()
+   * @see #getModule()
+   * @generated
+   */
+  EReference getModule_VarName();
 
   /**
    * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myAtl.Module#getElements <em>Elements</em>}'.
@@ -2406,6 +2500,38 @@ public interface MyAtlPackage extends EPackage
    * @generated
    */
   EReference getCalledRule_ActionBlock();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myAtl.QueryRule <em>Query Rule</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Query Rule</em>'.
+   * @see org.xtext.example.mydsl.myAtl.QueryRule
+   * @generated
+   */
+  EClass getQueryRule();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myAtl.QueryRule#getParameters <em>Parameters</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Parameters</em>'.
+   * @see org.xtext.example.mydsl.myAtl.QueryRule#getParameters()
+   * @see #getQueryRule()
+   * @generated
+   */
+  EReference getQueryRule_Parameters();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myAtl.QueryRule#getInitExpression <em>Init Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Init Expression</em>'.
+   * @see org.xtext.example.mydsl.myAtl.QueryRule#getInitExpression()
+   * @see #getQueryRule()
+   * @generated
+   */
+  EReference getQueryRule_InitExpression();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myAtl.Helper <em>Helper</em>}'.
@@ -3639,6 +3765,27 @@ public interface MyAtlPackage extends EPackage
   EClass getPrimaryExpCS();
 
   /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myAtl.StringExpCs <em>String Exp Cs</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>String Exp Cs</em>'.
+   * @see org.xtext.example.mydsl.myAtl.StringExpCs
+   * @generated
+   */
+  EClass getStringExpCs();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myAtl.StringExpCs#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.example.mydsl.myAtl.StringExpCs#getName()
+   * @see #getStringExpCs()
+   * @generated
+   */
+  EAttribute getStringExpCs_Name();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myAtl.NameExpCS <em>Name Exp CS</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3958,6 +4105,14 @@ public interface MyAtlPackage extends EPackage
     EReference MODULE__IN_MODELS = eINSTANCE.getModule_InModels();
 
     /**
+     * The meta object literal for the '<em><b>Var Name</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MODULE__VAR_NAME = eINSTANCE.getModule_VarName();
+
+    /**
      * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4058,6 +4213,32 @@ public interface MyAtlPackage extends EPackage
      * @generated
      */
     EReference CALLED_RULE__ACTION_BLOCK = eINSTANCE.getCalledRule_ActionBlock();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myAtl.impl.QueryRuleImpl <em>Query Rule</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myAtl.impl.QueryRuleImpl
+     * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getQueryRule()
+     * @generated
+     */
+    EClass QUERY_RULE = eINSTANCE.getQueryRule();
+
+    /**
+     * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference QUERY_RULE__PARAMETERS = eINSTANCE.getQueryRule_Parameters();
+
+    /**
+     * The meta object literal for the '<em><b>Init Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference QUERY_RULE__INIT_EXPRESSION = eINSTANCE.getQueryRule_InitExpression();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myAtl.impl.HelperImpl <em>Helper</em>}' class.
@@ -5076,6 +5257,24 @@ public interface MyAtlPackage extends EPackage
      * @generated
      */
     EClass PRIMARY_EXP_CS = eINSTANCE.getPrimaryExpCS();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myAtl.impl.StringExpCsImpl <em>String Exp Cs</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myAtl.impl.StringExpCsImpl
+     * @see org.xtext.example.mydsl.myAtl.impl.MyAtlPackageImpl#getStringExpCs()
+     * @generated
+     */
+    EClass STRING_EXP_CS = eINSTANCE.getStringExpCs();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STRING_EXP_CS__NAME = eINSTANCE.getStringExpCs_Name();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myAtl.impl.NameExpCSImpl <em>Name Exp CS</em>}' class.

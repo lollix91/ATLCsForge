@@ -103,6 +103,14 @@ public class MyAtlSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case MyAtlPackage.QUERY_RULE:
+      {
+        QueryRule queryRule = (QueryRule)theEObject;
+        T result = caseQueryRule(queryRule);
+        if (result == null) result = caseModuleElement(queryRule);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case MyAtlPackage.HELPER:
       {
         Helper helper = (Helper)theEObject;
@@ -500,6 +508,18 @@ public class MyAtlSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case MyAtlPackage.STRING_EXP_CS:
+      {
+        StringExpCs stringExpCs = (StringExpCs)theEObject;
+        T result = caseStringExpCs(stringExpCs);
+        if (result == null) result = casePrimaryExpCS(stringExpCs);
+        if (result == null) result = casePrefixedExpCS(stringExpCs);
+        if (result == null) result = caseInfixedExpCS(stringExpCs);
+        if (result == null) result = caseExpCS(stringExpCs);
+        if (result == null) result = caseNavigatingArgExpCS(stringExpCs);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case MyAtlPackage.NAME_EXP_CS:
       {
         NameExpCS nameExpCS = (NameExpCS)theEObject;
@@ -696,6 +716,22 @@ public class MyAtlSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseCalledRule(CalledRule object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Query Rule</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Query Rule</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseQueryRule(QueryRule object)
   {
     return null;
   }
@@ -1416,6 +1452,22 @@ public class MyAtlSwitch<T> extends Switch<T>
    * @generated
    */
   public T casePrimaryExpCS(PrimaryExpCS object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>String Exp Cs</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>String Exp Cs</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseStringExpCs(StringExpCs object)
   {
     return null;
   }

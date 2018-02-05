@@ -96,6 +96,11 @@ public class MyAtlAdapterFactory extends AdapterFactoryImpl
         return createCalledRuleAdapter();
       }
       @Override
+      public Adapter caseQueryRule(QueryRule object)
+      {
+        return createQueryRuleAdapter();
+      }
+      @Override
       public Adapter caseHelper(Helper object)
       {
         return createHelperAdapter();
@@ -321,6 +326,11 @@ public class MyAtlAdapterFactory extends AdapterFactoryImpl
         return createPrimaryExpCSAdapter();
       }
       @Override
+      public Adapter caseStringExpCs(StringExpCs object)
+      {
+        return createStringExpCsAdapter();
+      }
+      @Override
       public Adapter caseNameExpCS(NameExpCS object)
       {
         return createNameExpCSAdapter();
@@ -463,6 +473,21 @@ public class MyAtlAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createCalledRuleAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myAtl.QueryRule <em>Query Rule</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myAtl.QueryRule
+   * @generated
+   */
+  public Adapter createQueryRuleAdapter()
   {
     return null;
   }
@@ -1138,6 +1163,21 @@ public class MyAtlAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createPrimaryExpCSAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myAtl.StringExpCs <em>String Exp Cs</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myAtl.StringExpCs
+   * @generated
+   */
+  public Adapter createStringExpCsAdapter()
   {
     return null;
   }

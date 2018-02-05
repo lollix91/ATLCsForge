@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.xtext.example.mydsl.myAtl.Module#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myAtl.Module#getOutModels <em>Out Models</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myAtl.Module#getInModels <em>In Models</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myAtl.Module#getVarName <em>Var Name</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myAtl.Module#getElements <em>Elements</em>}</li>
  * </ul>
  *
@@ -85,6 +86,32 @@ public interface Module extends EObject
    * @generated
    */
   EList<NameExpCS> getInModels();
+
+  /**
+   * Returns the value of the '<em><b>Var Name</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Var Name</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Var Name</em>' containment reference.
+   * @see #setVarName(NameExpCS)
+   * @see org.xtext.example.mydsl.myAtl.MyAtlPackage#getModule_VarName()
+   * @model containment="true"
+   * @generated
+   */
+  NameExpCS getVarName();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.myAtl.Module#getVarName <em>Var Name</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Var Name</em>' containment reference.
+   * @see #getVarName()
+   * @generated
+   */
+  void setVarName(NameExpCS value);
 
   /**
    * Returns the value of the '<em><b>Elements</b></em>' containment reference list.

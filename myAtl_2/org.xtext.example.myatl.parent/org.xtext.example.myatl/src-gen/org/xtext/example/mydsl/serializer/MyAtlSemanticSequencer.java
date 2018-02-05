@@ -52,9 +52,11 @@ import org.xtext.example.mydsl.myAtl.NumberLiteralExpCS;
 import org.xtext.example.mydsl.myAtl.OutPattern;
 import org.xtext.example.mydsl.myAtl.PrefixExpCS;
 import org.xtext.example.mydsl.myAtl.PrimitiveTypeCS;
+import org.xtext.example.mydsl.myAtl.QueryRule;
 import org.xtext.example.mydsl.myAtl.RuleVariableDeclaration;
 import org.xtext.example.mydsl.myAtl.SelfExpCS;
 import org.xtext.example.mydsl.myAtl.SimpleOutPatternElement;
+import org.xtext.example.mydsl.myAtl.StringExpCs;
 import org.xtext.example.mydsl.myAtl.StringLiteralExpCS;
 import org.xtext.example.mydsl.myAtl.TupleLiteralExpCS;
 import org.xtext.example.mydsl.myAtl.TupleLiteralPartCS;
@@ -191,6 +193,9 @@ public class MyAtlSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case MyAtlPackage.PRIMITIVE_TYPE_CS:
 				sequence_PrimitiveTypeCS(context, (PrimitiveTypeCS) semanticObject); 
 				return; 
+			case MyAtlPackage.QUERY_RULE:
+				sequence_QueryRule(context, (QueryRule) semanticObject); 
+				return; 
 			case MyAtlPackage.RULE_VARIABLE_DECLARATION:
 				sequence_RuleVariableDeclaration(context, (RuleVariableDeclaration) semanticObject); 
 				return; 
@@ -199,6 +204,9 @@ public class MyAtlSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				return; 
 			case MyAtlPackage.SIMPLE_OUT_PATTERN_ELEMENT:
 				sequence_SimpleOutPatternElement(context, (SimpleOutPatternElement) semanticObject); 
+				return; 
+			case MyAtlPackage.STRING_EXP_CS:
+				sequence_StringExpCs(context, (StringExpCs) semanticObject); 
 				return; 
 			case MyAtlPackage.STRING_LITERAL_EXP_CS:
 				sequence_StringLiteralExpCS(context, (StringLiteralExpCS) semanticObject); 
@@ -625,8 +633,10 @@ public class MyAtlSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *         name=UnrestrictedName 
 	 *         outModels+=NameExpCS 
 	 *         outModels+=NameExpCS* 
+	 *         (inModels+=NameExpCS inModels+=NameExpCS*)* 
 	 *         inModels+=NameExpCS 
 	 *         inModels+=NameExpCS* 
+	 *         varName=NameExpCS? 
 	 *         elements+=ModuleElement*
 	 *     )
 	 */
@@ -869,6 +879,19 @@ public class MyAtlSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     ModuleElement returns QueryRule
+	 *     QueryRule returns QueryRule
+	 *
+	 * Constraint:
+	 *     (name=UnrestrictedName (parameters+=ATLParameterCS parameters+=ATLParameterCS*)? initExpression=ExpCS)
+	 */
+	protected void sequence_QueryRule(ISerializationContext context, QueryRule semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     RuleVariableDeclaration returns RuleVariableDeclaration
 	 *
 	 * Constraint:
@@ -919,6 +942,30 @@ public class MyAtlSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 */
 	protected void sequence_SimpleOutPatternElement(ISerializationContext context, SimpleOutPatternElement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     NavigatingArgExpCS returns StringExpCs
+	 *     PrimaryExpCS returns StringExpCs
+	 *     StringExpCs returns StringExpCs
+	 *     ExpCS returns StringExpCs
+	 *     InfixedExpCS returns StringExpCs
+	 *     InfixedExpCS.InfixExpCS_1_0 returns StringExpCs
+	 *     PrefixedExpCS returns StringExpCs
+	 *
+	 * Constraint:
+	 *     name='...'
+	 */
+	protected void sequence_StringExpCs(ISerializationContext context, StringExpCs semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, MyAtlPackage.Literals.STRING_EXP_CS__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyAtlPackage.Literals.STRING_EXP_CS__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getStringExpCsAccess().getNameFullStopFullStopFullStopKeyword_0(), semanticObject.getName());
+		feeder.finish();
 	}
 	
 	

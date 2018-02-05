@@ -60,6 +60,15 @@ public interface MyAtlFactory extends EFactory
   CalledRule createCalledRule();
 
   /**
+   * Returns a new object of class '<em>Query Rule</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Query Rule</em>'.
+   * @generated
+   */
+  QueryRule createQueryRule();
+
+  /**
    * Returns a new object of class '<em>Helper</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -463,6 +472,15 @@ public interface MyAtlFactory extends EFactory
    * @generated
    */
   PrimaryExpCS createPrimaryExpCS();
+
+  /**
+   * Returns a new object of class '<em>String Exp Cs</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>String Exp Cs</em>'.
+   * @generated
+   */
+  StringExpCs createStringExpCs();
 
   /**
    * Returns a new object of class '<em>Name Exp CS</em>'.

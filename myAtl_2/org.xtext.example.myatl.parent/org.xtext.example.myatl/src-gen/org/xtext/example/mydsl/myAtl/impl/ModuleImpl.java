@@ -35,6 +35,7 @@ import org.xtext.example.mydsl.myAtl.NameExpCS;
  *   <li>{@link org.xtext.example.mydsl.myAtl.impl.ModuleImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myAtl.impl.ModuleImpl#getOutModels <em>Out Models</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myAtl.impl.ModuleImpl#getInModels <em>In Models</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myAtl.impl.ModuleImpl#getVarName <em>Var Name</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myAtl.impl.ModuleImpl#getElements <em>Elements</em>}</li>
  * </ul>
  *
@@ -81,6 +82,16 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
    * @ordered
    */
   protected EList<NameExpCS> inModels;
+
+  /**
+   * The cached value of the '{@link #getVarName() <em>Var Name</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVarName()
+   * @generated
+   * @ordered
+   */
+  protected NameExpCS varName;
 
   /**
    * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
@@ -169,6 +180,54 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
    * <!-- end-user-doc -->
    * @generated
    */
+  public NameExpCS getVarName()
+  {
+    return varName;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetVarName(NameExpCS newVarName, NotificationChain msgs)
+  {
+    NameExpCS oldVarName = varName;
+    varName = newVarName;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyAtlPackage.MODULE__VAR_NAME, oldVarName, newVarName);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setVarName(NameExpCS newVarName)
+  {
+    if (newVarName != varName)
+    {
+      NotificationChain msgs = null;
+      if (varName != null)
+        msgs = ((InternalEObject)varName).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyAtlPackage.MODULE__VAR_NAME, null, msgs);
+      if (newVarName != null)
+        msgs = ((InternalEObject)newVarName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyAtlPackage.MODULE__VAR_NAME, null, msgs);
+      msgs = basicSetVarName(newVarName, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyAtlPackage.MODULE__VAR_NAME, newVarName, newVarName));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<ModuleElement> getElements()
   {
     if (elements == null)
@@ -192,6 +251,8 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
         return ((InternalEList<?>)getOutModels()).basicRemove(otherEnd, msgs);
       case MyAtlPackage.MODULE__IN_MODELS:
         return ((InternalEList<?>)getInModels()).basicRemove(otherEnd, msgs);
+      case MyAtlPackage.MODULE__VAR_NAME:
+        return basicSetVarName(null, msgs);
       case MyAtlPackage.MODULE__ELEMENTS:
         return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
     }
@@ -214,6 +275,8 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
         return getOutModels();
       case MyAtlPackage.MODULE__IN_MODELS:
         return getInModels();
+      case MyAtlPackage.MODULE__VAR_NAME:
+        return getVarName();
       case MyAtlPackage.MODULE__ELEMENTS:
         return getElements();
     }
@@ -242,6 +305,9 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
         getInModels().clear();
         getInModels().addAll((Collection<? extends NameExpCS>)newValue);
         return;
+      case MyAtlPackage.MODULE__VAR_NAME:
+        setVarName((NameExpCS)newValue);
+        return;
       case MyAtlPackage.MODULE__ELEMENTS:
         getElements().clear();
         getElements().addAll((Collection<? extends ModuleElement>)newValue);
@@ -269,6 +335,9 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
       case MyAtlPackage.MODULE__IN_MODELS:
         getInModels().clear();
         return;
+      case MyAtlPackage.MODULE__VAR_NAME:
+        setVarName((NameExpCS)null);
+        return;
       case MyAtlPackage.MODULE__ELEMENTS:
         getElements().clear();
         return;
@@ -292,6 +361,8 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
         return outModels != null && !outModels.isEmpty();
       case MyAtlPackage.MODULE__IN_MODELS:
         return inModels != null && !inModels.isEmpty();
+      case MyAtlPackage.MODULE__VAR_NAME:
+        return varName != null;
       case MyAtlPackage.MODULE__ELEMENTS:
         return elements != null && !elements.isEmpty();
     }

@@ -11,8 +11,11 @@ Module:
 	'module'
 	name=UnrestrictedName';'
 	'create' 'OUT' ':' outModels+=NameExpCS	(","outModels+=NameExpCS)*
-	'from' 'IN' ':' inModels+=NameExpCS	(","inModels+=NameExpCS)* ';'
-	elements+=ModuleElement*; 
+	'from' (inModels+=NameExpCS (',' | ':')	(","inModels+=NameExpCS)*)* ('in' | 'IN')? ':' inModels+=NameExpCS	(","inModels+=NameExpCS)* 
+	';' ('uses' varName=NameExpCS ";")?	
+	elements+=ModuleElement*
+	//
+	; 
 
 		
 
@@ -49,7 +52,7 @@ EssentialOCLUnrestrictedName :
 
 ModuleElement: 
 
-	Helper | MatchedRule | CalledRule;
+	Helper | MatchedRule | CalledRule  | QueryRule;
 
 
 
@@ -61,34 +64,43 @@ MatchedRule :
 		variables += RuleVariableDeclaration*
 		'}')?
 		'to'
-		outPattern=OutPattern
+		outPattern=OutPattern ('...')? (',')?
 		('do' '{'
 			actionBlock=ActionBlock
 			'}'
 		)?
 
-	'}'
+	 (',')?'}'
 
 ;
 
 
 
 CalledRule :
-	('entrypoint')? 'rule' name=UnrestrictedName
+	('entrypoint' | 'endpoint')? 'rule' name=UnrestrictedName
 	('('')')? '{'
 		('using' '{'
 		variables += RuleVariableDeclaration*
 		'}')?
 		'to'
-		outPattern=OutPattern
+		outPattern=OutPattern ('...')? (',')?
 		('do' '{'
 			actionBlock=ActionBlock
 		'}'
 		)?
-	'}'
+	 (',')?'}'
 ;
 
-
+QueryRule :
+	'query'  name=UnrestrictedName 
+	('('
+	(parameters+=ATLParameterCS (','
+		parameters+=ATLParameterCS)*)?
+	')')?
+	
+	'=' initExpression=ExpCS ';'
+	
+;
 
 /*
 
@@ -189,7 +201,7 @@ SimpleOutPatternElement :
 
 
 ForEachOutPatternElement:
-		'xxx'
+	'xxx'
 	collection = ExpCS
 	'yyy'
 ;
@@ -516,8 +528,14 @@ SelfExpCS:
 
 PrimaryExpCS:
 	NavigatingExpCS | SelfExpCS | PrimitiveLiteralExpCS | TupleLiteralExpCS |
- 	LetExpCS | IfExpCS | NestedExpCS 
+ 	LetExpCS | IfExpCS | NestedExpCS | StringExpCs
 		;
+
+
+StringExpCs:
+	name ='...'
+;
+
 
 	
 
