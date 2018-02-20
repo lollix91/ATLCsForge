@@ -1542,10 +1542,14 @@ public class MyAtlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameCollectionTypeIdentifierParserRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
 		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
 		private final Group cGroup_1_0 = (Group)cAlternatives_1.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_1_0_0 = (Keyword)cGroup_1_0.eContents().get(0);
+		private final Alternatives cAlternatives_1_0_0 = (Alternatives)cGroup_1_0.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_1_0_0_0 = (Keyword)cAlternatives_1_0_0.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_1_0_0_1 = (Keyword)cAlternatives_1_0_0.eContents().get(1);
 		private final Assignment cOwnedTypeAssignment_1_0_1 = (Assignment)cGroup_1_0.eContents().get(1);
 		private final RuleCall cOwnedTypeTypeExpCSParserRuleCall_1_0_1_0 = (RuleCall)cOwnedTypeAssignment_1_0_1.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_1_0_2 = (Keyword)cGroup_1_0.eContents().get(2);
+		private final Alternatives cAlternatives_1_0_2 = (Alternatives)cGroup_1_0.eContents().get(2);
+		private final Keyword cRightParenthesisKeyword_1_0_2_0 = (Keyword)cAlternatives_1_0_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_1_0_2_1 = (Keyword)cAlternatives_1_0_2.eContents().get(1);
 		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
 		private final Keyword cLessThanSignKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
 		private final Assignment cOwnedTypeAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
@@ -1553,12 +1557,12 @@ public class MyAtlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cGreaterThanSignKeyword_1_1_2 = (Keyword)cGroup_1_1.eContents().get(2);
 		
 		//CollectionTypeCS:
-		//	name=CollectionTypeIdentifier ('(' ownedType=TypeExpCS ')' | '<' ownedType=TypeExpCS '>')?
+		//	name=CollectionTypeIdentifier (('(' | '{') ownedType=TypeExpCS? (')' | '}') | '<' ownedType=TypeExpCS '>')?
 		//	//backtrack='true'
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=CollectionTypeIdentifier ('(' ownedType=TypeExpCS ')' | '<' ownedType=TypeExpCS '>')?
+		//name=CollectionTypeIdentifier (('(' | '{') ownedType=TypeExpCS? (')' | '}') | '<' ownedType=TypeExpCS '>')?
 		public Group getGroup() { return cGroup; }
 		
 		//name=CollectionTypeIdentifier
@@ -1567,23 +1571,35 @@ public class MyAtlGrammarAccess extends AbstractGrammarElementFinder {
 		//CollectionTypeIdentifier
 		public RuleCall getNameCollectionTypeIdentifierParserRuleCall_0_0() { return cNameCollectionTypeIdentifierParserRuleCall_0_0; }
 		
-		//('(' ownedType=TypeExpCS ')' | '<' ownedType=TypeExpCS '>')?
+		//(('(' | '{') ownedType=TypeExpCS? (')' | '}') | '<' ownedType=TypeExpCS '>')?
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
-		//'(' ownedType=TypeExpCS ')'
+		//('(' | '{') ownedType=TypeExpCS? (')' | '}')
 		public Group getGroup_1_0() { return cGroup_1_0; }
 		
-		//'('
-		public Keyword getLeftParenthesisKeyword_1_0_0() { return cLeftParenthesisKeyword_1_0_0; }
+		//'(' | '{'
+		public Alternatives getAlternatives_1_0_0() { return cAlternatives_1_0_0; }
 		
-		//ownedType=TypeExpCS
+		//'('
+		public Keyword getLeftParenthesisKeyword_1_0_0_0() { return cLeftParenthesisKeyword_1_0_0_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_1_0_0_1() { return cLeftCurlyBracketKeyword_1_0_0_1; }
+		
+		//ownedType=TypeExpCS?
 		public Assignment getOwnedTypeAssignment_1_0_1() { return cOwnedTypeAssignment_1_0_1; }
 		
 		//TypeExpCS
 		public RuleCall getOwnedTypeTypeExpCSParserRuleCall_1_0_1_0() { return cOwnedTypeTypeExpCSParserRuleCall_1_0_1_0; }
 		
+		//')' | '}'
+		public Alternatives getAlternatives_1_0_2() { return cAlternatives_1_0_2; }
+		
 		//')'
-		public Keyword getRightParenthesisKeyword_1_0_2() { return cRightParenthesisKeyword_1_0_2; }
+		public Keyword getRightParenthesisKeyword_1_0_2_0() { return cRightParenthesisKeyword_1_0_2_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_1_0_2_1() { return cRightCurlyBracketKeyword_1_0_2_1; }
 		
 		//'<' ownedType=TypeExpCS '>'
 		public Group getGroup_1_1() { return cGroup_1_1; }
@@ -3710,7 +3726,7 @@ public class MyAtlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal SIMPLE_ID:
-	//	('a'..'z' | 'A'..'Z' | '_' | "#") ('a'..'z' | 'A'..'Z' | '_' | '0'..'9' | '!')*;
+	//	('a'..'z' | 'A'..'Z' | '_' | "#" | '|' | '"') ('a'..'z' | 'A'..'Z' | '_' | '0'..'9' | '!' | '|' | '"')*;
 	public TerminalRule getSIMPLE_IDRule() {
 		return tSIMPLE_ID;
 	}
@@ -3834,7 +3850,7 @@ public class MyAtlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//CollectionTypeCS:
-	//	name=CollectionTypeIdentifier ('(' ownedType=TypeExpCS ')' | '<' ownedType=TypeExpCS '>')?
+	//	name=CollectionTypeIdentifier (('(' | '{') ownedType=TypeExpCS? (')' | '}') | '<' ownedType=TypeExpCS '>')?
 	//	//backtrack='true'
 	//;
 	public CollectionTypeCSElements getCollectionTypeCSAccess() {

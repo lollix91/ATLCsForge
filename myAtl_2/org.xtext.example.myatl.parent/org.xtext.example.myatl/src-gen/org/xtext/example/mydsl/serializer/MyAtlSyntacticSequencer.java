@@ -29,6 +29,9 @@ public class MyAtlSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_CalledRule___EndpointKeyword_0_1_or_EntrypointKeyword_0_0__q;
 	protected AbstractElementAlias match_CalledRule___LeftParenthesisKeyword_3_0_RightParenthesisKeyword_3_1__q;
 	protected AbstractElementAlias match_CalledRule___UsingKeyword_5_0_LeftCurlyBracketKeyword_5_1_RightCurlyBracketKeyword_5_3__q;
+	protected AbstractElementAlias match_CollectionTypeCS_LeftCurlyBracketKeyword_1_0_0_1_or_LeftParenthesisKeyword_1_0_0_0;
+	protected AbstractElementAlias match_CollectionTypeCS_RightCurlyBracketKeyword_1_0_2_1_or_RightParenthesisKeyword_1_0_2_0;
+	protected AbstractElementAlias match_CollectionTypeCS_____LeftCurlyBracketKeyword_1_0_0_1_or_LeftParenthesisKeyword_1_0_0_0_____RightCurlyBracketKeyword_1_0_2_1_or_RightParenthesisKeyword_1_0_2_0____q;
 	protected AbstractElementAlias match_Helper_ContextKeyword_1_q;
 	protected AbstractElementAlias match_InPattern___LeftParenthesisKeyword_1_0_RightParenthesisKeyword_1_2__q;
 	protected AbstractElementAlias match_MatchedRule_CommaKeyword_11_q;
@@ -51,6 +54,9 @@ public class MyAtlSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_CalledRule___EndpointKeyword_0_1_or_EntrypointKeyword_0_0__q = new AlternativeAlias(false, true, new TokenAlias(false, false, grammarAccess.getCalledRuleAccess().getEndpointKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getCalledRuleAccess().getEntrypointKeyword_0_0()));
 		match_CalledRule___LeftParenthesisKeyword_3_0_RightParenthesisKeyword_3_1__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getCalledRuleAccess().getLeftParenthesisKeyword_3_0()), new TokenAlias(false, false, grammarAccess.getCalledRuleAccess().getRightParenthesisKeyword_3_1()));
 		match_CalledRule___UsingKeyword_5_0_LeftCurlyBracketKeyword_5_1_RightCurlyBracketKeyword_5_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getCalledRuleAccess().getUsingKeyword_5_0()), new TokenAlias(false, false, grammarAccess.getCalledRuleAccess().getLeftCurlyBracketKeyword_5_1()), new TokenAlias(false, false, grammarAccess.getCalledRuleAccess().getRightCurlyBracketKeyword_5_3()));
+		match_CollectionTypeCS_LeftCurlyBracketKeyword_1_0_0_1_or_LeftParenthesisKeyword_1_0_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getCollectionTypeCSAccess().getLeftCurlyBracketKeyword_1_0_0_1()), new TokenAlias(false, false, grammarAccess.getCollectionTypeCSAccess().getLeftParenthesisKeyword_1_0_0_0()));
+		match_CollectionTypeCS_RightCurlyBracketKeyword_1_0_2_1_or_RightParenthesisKeyword_1_0_2_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getCollectionTypeCSAccess().getRightCurlyBracketKeyword_1_0_2_1()), new TokenAlias(false, false, grammarAccess.getCollectionTypeCSAccess().getRightParenthesisKeyword_1_0_2_0()));
+		match_CollectionTypeCS_____LeftCurlyBracketKeyword_1_0_0_1_or_LeftParenthesisKeyword_1_0_0_0_____RightCurlyBracketKeyword_1_0_2_1_or_RightParenthesisKeyword_1_0_2_0____q = new GroupAlias(false, true, new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getCollectionTypeCSAccess().getLeftCurlyBracketKeyword_1_0_0_1()), new TokenAlias(false, false, grammarAccess.getCollectionTypeCSAccess().getLeftParenthesisKeyword_1_0_0_0())), new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getCollectionTypeCSAccess().getRightCurlyBracketKeyword_1_0_2_1()), new TokenAlias(false, false, grammarAccess.getCollectionTypeCSAccess().getRightParenthesisKeyword_1_0_2_0())));
 		match_Helper_ContextKeyword_1_q = new TokenAlias(false, true, grammarAccess.getHelperAccess().getContextKeyword_1());
 		match_InPattern___LeftParenthesisKeyword_1_0_RightParenthesisKeyword_1_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getInPatternAccess().getLeftParenthesisKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getInPatternAccess().getRightParenthesisKeyword_1_2()));
 		match_MatchedRule_CommaKeyword_11_q = new TokenAlias(false, true, grammarAccess.getMatchedRuleAccess().getCommaKeyword_11());
@@ -90,6 +96,12 @@ public class MyAtlSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_CalledRule___LeftParenthesisKeyword_3_0_RightParenthesisKeyword_3_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_CalledRule___UsingKeyword_5_0_LeftCurlyBracketKeyword_5_1_RightCurlyBracketKeyword_5_3__q.equals(syntax))
 				emit_CalledRule___UsingKeyword_5_0_LeftCurlyBracketKeyword_5_1_RightCurlyBracketKeyword_5_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_CollectionTypeCS_LeftCurlyBracketKeyword_1_0_0_1_or_LeftParenthesisKeyword_1_0_0_0.equals(syntax))
+				emit_CollectionTypeCS_LeftCurlyBracketKeyword_1_0_0_1_or_LeftParenthesisKeyword_1_0_0_0(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_CollectionTypeCS_RightCurlyBracketKeyword_1_0_2_1_or_RightParenthesisKeyword_1_0_2_0.equals(syntax))
+				emit_CollectionTypeCS_RightCurlyBracketKeyword_1_0_2_1_or_RightParenthesisKeyword_1_0_2_0(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_CollectionTypeCS_____LeftCurlyBracketKeyword_1_0_0_1_or_LeftParenthesisKeyword_1_0_0_0_____RightCurlyBracketKeyword_1_0_2_1_or_RightParenthesisKeyword_1_0_2_0____q.equals(syntax))
+				emit_CollectionTypeCS_____LeftCurlyBracketKeyword_1_0_0_1_or_LeftParenthesisKeyword_1_0_0_0_____RightCurlyBracketKeyword_1_0_2_1_or_RightParenthesisKeyword_1_0_2_0____q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Helper_ContextKeyword_1_q.equals(syntax))
 				emit_Helper_ContextKeyword_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_InPattern___LeftParenthesisKeyword_1_0_RightParenthesisKeyword_1_2__q.equals(syntax))
@@ -194,6 +206,39 @@ public class MyAtlSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     name=UnrestrictedName ('(' ')')? '{' (ambiguity) 'to' outPattern=OutPattern
 	 */
 	protected void emit_CalledRule___UsingKeyword_5_0_LeftCurlyBracketKeyword_5_1_RightCurlyBracketKeyword_5_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     '(' | '{'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     name=CollectionTypeIdentifier (ambiguity) ownedType=TypeExpCS
+	 */
+	protected void emit_CollectionTypeCS_LeftCurlyBracketKeyword_1_0_0_1_or_LeftParenthesisKeyword_1_0_0_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ')' | '}'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     ownedType=TypeExpCS (ambiguity) (rule end)
+	 */
+	protected void emit_CollectionTypeCS_RightCurlyBracketKeyword_1_0_2_1_or_RightParenthesisKeyword_1_0_2_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     (('(' | '{') (')' | '}'))?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     name=CollectionTypeIdentifier (ambiguity) (rule end)
+	 */
+	protected void emit_CollectionTypeCS_____LeftCurlyBracketKeyword_1_0_0_1_or_LeftParenthesisKeyword_1_0_0_0_____RightCurlyBracketKeyword_1_0_2_1_or_RightParenthesisKeyword_1_0_2_0____q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

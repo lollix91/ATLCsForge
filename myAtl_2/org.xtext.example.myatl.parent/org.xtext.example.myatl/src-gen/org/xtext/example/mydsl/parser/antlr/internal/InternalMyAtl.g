@@ -2482,16 +2482,23 @@ ruleCollectionTypeCS returns [EObject current=null]
 		)
 		(
 			(
-				otherlv_1='('
-				{
-					newLeafNode(otherlv_1, grammarAccess.getCollectionTypeCSAccess().getLeftParenthesisKeyword_1_0_0());
-				}
+				(
+					otherlv_1='('
+					{
+						newLeafNode(otherlv_1, grammarAccess.getCollectionTypeCSAccess().getLeftParenthesisKeyword_1_0_0_0());
+					}
+					    |
+					otherlv_2='{'
+					{
+						newLeafNode(otherlv_2, grammarAccess.getCollectionTypeCSAccess().getLeftCurlyBracketKeyword_1_0_0_1());
+					}
+				)
 				(
 					(
 						{
 							newCompositeNode(grammarAccess.getCollectionTypeCSAccess().getOwnedTypeTypeExpCSParserRuleCall_1_0_1_0());
 						}
-						lv_ownedType_2_0=ruleTypeExpCS
+						lv_ownedType_3_0=ruleTypeExpCS
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getCollectionTypeCSRule());
@@ -2499,29 +2506,36 @@ ruleCollectionTypeCS returns [EObject current=null]
 							set(
 								$current,
 								"ownedType",
-								lv_ownedType_2_0,
+								lv_ownedType_3_0,
 								"org.xtext.example.mydsl.MyAtl.TypeExpCS");
 							afterParserOrEnumRuleCall();
 						}
 					)
+				)?
+				(
+					otherlv_4=')'
+					{
+						newLeafNode(otherlv_4, grammarAccess.getCollectionTypeCSAccess().getRightParenthesisKeyword_1_0_2_0());
+					}
+					    |
+					otherlv_5='}'
+					{
+						newLeafNode(otherlv_5, grammarAccess.getCollectionTypeCSAccess().getRightCurlyBracketKeyword_1_0_2_1());
+					}
 				)
-				otherlv_3=')'
-				{
-					newLeafNode(otherlv_3, grammarAccess.getCollectionTypeCSAccess().getRightParenthesisKeyword_1_0_2());
-				}
 			)
 			    |
 			(
-				otherlv_4='<'
+				otherlv_6='<'
 				{
-					newLeafNode(otherlv_4, grammarAccess.getCollectionTypeCSAccess().getLessThanSignKeyword_1_1_0());
+					newLeafNode(otherlv_6, grammarAccess.getCollectionTypeCSAccess().getLessThanSignKeyword_1_1_0());
 				}
 				(
 					(
 						{
 							newCompositeNode(grammarAccess.getCollectionTypeCSAccess().getOwnedTypeTypeExpCSParserRuleCall_1_1_1_0());
 						}
-						lv_ownedType_5_0=ruleTypeExpCS
+						lv_ownedType_7_0=ruleTypeExpCS
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getCollectionTypeCSRule());
@@ -2529,15 +2543,15 @@ ruleCollectionTypeCS returns [EObject current=null]
 							set(
 								$current,
 								"ownedType",
-								lv_ownedType_5_0,
+								lv_ownedType_7_0,
 								"org.xtext.example.mydsl.MyAtl.TypeExpCS");
 							afterParserOrEnumRuleCall();
 						}
 					)
 				)
-				otherlv_6='>'
+				otherlv_8='>'
 				{
-					newLeafNode(otherlv_6, grammarAccess.getCollectionTypeCSAccess().getGreaterThanSignKeyword_1_1_2());
+					newLeafNode(otherlv_8, grammarAccess.getCollectionTypeCSAccess().getGreaterThanSignKeyword_1_1_2());
 				}
 			)
 		)?
@@ -5150,7 +5164,7 @@ RULE_SINGLE_QUOTED_STRING : '\'' ('\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|'\''|'\\')|~
 
 RULE_ML_SINGLE_QUOTED_STRING : '/\'' ( options {greedy=false;} : . )*'\'/';
 
-RULE_SIMPLE_ID : ('a'..'z'|'A'..'Z'|'_'|'#') ('a'..'z'|'A'..'Z'|'_'|'0'..'9'|'!')*;
+RULE_SIMPLE_ID : ('a'..'z'|'A'..'Z'|'_'|'#'|'|'|'"') ('a'..'z'|'A'..'Z'|'_'|'0'..'9'|'!'|'|'|'"')*;
 
 RULE_BIG_INT : ('0'..'9')+;
 

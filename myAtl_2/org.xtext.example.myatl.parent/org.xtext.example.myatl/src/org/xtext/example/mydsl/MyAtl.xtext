@@ -20,7 +20,7 @@ Module:
 		
 
 EssentialOCLUnreservedName :
-	UnrestrictedName | CollectionTypeIdentifier |  PrimitiveTypeIdentifier | 'Tuple'
+	UnrestrictedName | CollectionTypeIdentifier |  PrimitiveTypeIdentifier | 'Tuple' 
 ;
 
 UnreservedName :
@@ -260,7 +260,7 @@ terminal ML_SINGLE_QUOTED_STRING:
 ;
 
 terminal SIMPLE_ID:
-	('a'..'z' | 'A'..'Z'|'_'|"#" ) ('a'..'z'|'A'..'Z' | '_' | '0'..'9'|'!')*
+	('a'..'z' | 'A'..'Z'|'_'|"#" | '|' | '"' ) ('a'..'z'|'A'..'Z' | '_' | '0'..'9'|'!' | '|' | '"')*
 
 ;
 
@@ -346,7 +346,7 @@ NavigationOperator:
 
 
 CollectionTypeCS :
-	name=CollectionTypeIdentifier (('(' ownedType=TypeExpCS ')')
+	name=CollectionTypeIdentifier ((('(' | '{') (ownedType=TypeExpCS)? (')' | '}'))
 		| ('<' ownedType=TypeExpCS '>'))?
 				//backtrack='true'
 

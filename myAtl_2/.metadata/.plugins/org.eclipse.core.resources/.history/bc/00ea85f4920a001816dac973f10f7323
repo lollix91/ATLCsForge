@@ -1,0 +1,623 @@
+grammar org.xtext.example.mydsl.MyAtl with org.eclipse.xtext.common.Terminals
+
+
+
+generate myAtl "http://www.xtext.org/example/mydsl/MyAtl"
+
+
+
+Module:
+
+	'module'
+	name=UnrestrictedName';'
+	'create' 'OUT' ':' outModels+=NameExpCS	(","outModels+=NameExpCS)*
+	'from' (inModels+=NameExpCS (',' | ':')	(","inModels+=NameExpCS)*)* ('in' | 'IN')? ':' inModels+=NameExpCS	(","inModels+=NameExpCS)* 
+	';' ('uses' varName=NameExpCS ";")?	
+	elements+=ModuleElement*
+	//
+	; 
+
+		
+
+EssentialOCLUnreservedName :
+	UnrestrictedName | CollectionTypeIdentifier |  PrimitiveTypeIdentifier | 'Tuple'
+;
+
+UnreservedName :
+	EssentialOCLUnreservedName
+;
+
+PrimitiveTypeIdentifier:
+	'Boolean' | 'Integer' | 'Real' | 'String' | 'UnlimitedNatural' | 'OclAny'
+	| 'OclInvalid' | 'OclVoid'
+;
+
+
+
+CollectionTypeIdentifier :
+	'Set' | 'Bag' | 'Sequence' | 'Collection' | 'OrderedSet'
+;
+
+
+UnrestrictedName :
+	EssentialOCLUnrestrictedName
+;
+
+
+
+EssentialOCLUnrestrictedName :
+		SIMPLE_ID
+;
+
+
+ModuleElement: 
+
+	Helper | MatchedRule | CalledRule  | QueryRule;
+
+
+
+MatchedRule : 
+	'rule' name=UnrestrictedName '{'
+		'from'
+		inPattern=InPattern 
+		('using' '{'
+		variables += RuleVariableDeclaration*
+		'}')?
+		'to'
+		outPattern=OutPattern ('...')? (',')?
+		('do' '{'
+			actionBlock=ActionBlock
+			'}'
+		)?
+
+	 (',')?'}'
+
+;
+
+
+
+CalledRule :
+	('entrypoint' | 'endpoint')? 'rule' name=UnrestrictedName
+	('('')')? '{'
+		('using' '{'
+		variables += RuleVariableDeclaration*
+		'}')?
+		'to'
+		outPattern=OutPattern ('...')? (',')?
+		('do' '{'
+			actionBlock=ActionBlock
+		'}'
+		)?
+	 (',')?'}'
+;
+
+QueryRule :
+	'query'  name=UnrestrictedName 
+	('('
+	(parameters+=ATLParameterCS (','
+		parameters+=ATLParameterCS)*)?
+	')')?
+	
+	'=' initExpression=ExpCS ';'
+	
+;
+
+/*
+
+ *helper [context context type]? def :
+
+ *helper_name(parameters) : return_type = exp;
+
+ */
+
+
+
+Helper :
+	'helper'  ('context')? (name=UnrestrictedName)? 	
+	definition=ATLDefCS 
+;
+
+
+
+/*
+
+ *Implementation of Complete OGL Parts for ATL.
+
+ *Adaption, ATL hac nome differences; 'context' is not
+
+ *optional in OCL.
+
+ *OCL DefCS requires 'stat1c' key word.
+
+ */
+
+
+
+
+ATLDefCS:
+
+	'def' ':' varName=UnrestrictedName
+	('('
+	(parameters+=ATLParameterCS (','
+		parameters+=ATLParameterCS)*)?
+	')')?
+	':' type=ATLType
+	'=' initExpression=ExpCS ';'
+
+;
+
+
+
+
+ATLParameterCS:
+
+	varName=UnrestrictedName ':' type=ATLType
+
+;
+
+
+
+RuleVariableDeclaration:
+		varName=UnrestrictedName ':' type=ATLType 
+		'=' initExpression=ExpCS ';'
+
+;
+
+
+
+InPattern:
+	elements+=InPatternElement ('('
+	filter=ExpCS?
+	')')?
+
+;
+
+
+InPatternElement  :
+	varName=UnrestrictedName ':' type=ATLType
+
+;
+
+
+OutPattern:
+	elements+=OutPatternElement (','
+		elements+=OutPatternElement)*
+
+;
+
+
+OutPatternElement:
+	SimpleOutPatternElement	| ForEachOutPatternElement
+;
+
+
+SimpleOutPatternElement :
+	varName=UnrestrictedName ':' type=ATLType
+	('('
+		(bindings+=Binding (',' bindings+=Binding)*)?
+	')')?
+
+;
+
+
+ForEachOutPatternElement:
+	'xxx'
+	collection = ExpCS
+	'yyy'
+;
+
+Binding:
+	propertyName=UnrestrictedName '<-' value=ExpCS
+
+;
+
+
+
+ActionBlock:
+	statements+=Statement+
+;
+
+
+
+Statement:
+	BindingStat
+;
+
+
+
+BindingStat:
+	source=ExpCS '.' 
+	propertyName=UnrestrictedName '<-'
+	value=ExpCS ';'
+;
+
+
+ATLType :
+	(modelName = ATLModelName '!')? type = TypeExpCS
+;
+
+
+
+ATLModelName :
+	UnrestrictedName;
+
+		
+
+terminal DOUBLE_QUOTED_STRING:
+	'"' ('\\'('b' | 't'| 'n' | 'f' | 'r'  | 'u'  | '"'  | "'"
+		| '\\') | !('\\' | '"'))* '"'	
+;
+
+
+
+terminal SINGLE_QUOTED_STRING:
+	"'" ('\\'('b' | 't'| 'n' | 'f' | 'r'  | 'u'  | '"'  | "'"
+		| '\\') | !('\\' | "'"))* "'"	
+;
+
+terminal ML_SINGLE_QUOTED_STRING:
+	"/'"->"'/"
+;
+
+terminal SIMPLE_ID:
+	('a'..'z' | 'A'..'Z'|'_'|"#" ) ('a'..'z'|'A'..'Z' | '_' | '0'..'9'|'!')*
+
+;
+
+
+
+terminal BIG_INT :
+	('0'..'9')+
+
+;
+
+terminal DOCUMENTATION:
+	'/**'->'*/'
+
+;
+
+@Override
+terminal ML_COMMENT:
+	'/*' !('\n' | '\r')* ('\r'? '\n')?
+;
+
+@Override
+terminal SL_COMMENT:
+	'--' !('\n' | '\r')* ('\r'? '\n')?
+
+;
+
+@Override
+terminal WS:
+	(' ' | '\t' | '\r'| '\n')+
+
+;
+
+@Override
+terminal ANY_OTHER:
+	.
+;
+
+
+
+EssentialOCLRersevedKeyword:
+	'and' | 'else' | 'endif' | 'if' | 'implies' | 'in' | 'let' 
+	| 'not' | 'or' | 'then' | 'xor'
+
+;
+
+EssentialOCLPrefixOperator:
+
+	'-' | 'not' 
+
+;
+
+EssentialOCLInfixOperator:
+	'*' | '/' | '+' | '-' | '>' | '<' | '>=' | '<=' | '=' | '<>' | 'and'
+	| 'or' | 'xor' | 'implies'
+
+;
+
+EssentialOCLNavigationOperator:
+	'.' | '->'
+
+;
+
+
+StringLiteral:
+	SINGLE_QUOTED_STRING
+;
+
+
+
+PrefixOperator:
+	EssentialOCLPrefixOperator
+;
+
+InfixOperator:
+	EssentialOCLInfixOperator
+
+;
+
+NavigationOperator:
+	EssentialOCLNavigationOperator
+;
+
+
+
+CollectionTypeCS :
+	name=CollectionTypeIdentifier ((('(' | '{') (ownedType=TypeExpCS)? (')' | '}'))
+		| ('<' ownedType=TypeExpCS '>'))?
+				//backtrack='true'
+
+;
+
+
+
+TupleTypeCS:
+	name='Tuple'
+	(('(' (ownedParts+=tuplePartCS (',' ownedParts+=tuplePartCS)*)? ')')
+		| ('<' (ownedParts+=tuplePartCS (',' ownedParts+=tuplePartCS)*)?'>'))?
+			backtrack='true'
+;
+
+ 
+
+tuplePartCS:
+	name=UnrestrictedName ':' ownedType=TypeExpCS
+
+;
+
+
+CollectionLiteralExpCS:
+	ownedType=CollectionTypeCS
+	'{' (ownedParts+=CollectionLiteralPartCS (',' ownedParts+=CollectionLiteralPartCS)*)?'}'
+
+
+;
+
+CollectionLiteralPartCS:
+	expressionCS=ExpCS ('..' lastExpressionCS=ExpCS)?
+
+;
+
+
+
+PrimitiveLiteralExpCS:
+	NumberLiteralExpCS | StringLiteralExpCS | BooleanLiteralExpCS 
+	| UnlimitedNaturalLiteralExpCS | InvalidLiteralExpCS | NullLiteralExpCS
+
+;
+
+TupleLiteralExpCS:
+	'Tuple' '{' ownedParts+=TupleLiteralPartCS (','
+		ownedParts+=TupleLiteralPartCS)* '}'
+
+;
+
+TupleLiteralPartCS:
+	name=UnrestrictedName (':' ownedType=TypeExpCS)? '='
+	initExpression=ExpCS
+;
+
+NumberLiteralExpCS:
+	name=BIG_INT
+
+;
+
+StringLiteralExpCS:
+	name+=StringLiteral
+
+;
+
+BooleanLiteralExpCS:
+	name='true' | name='false'
+
+
+;
+
+
+
+UnlimitedNaturalLiteralExpCS:
+	{UnlimitedNaturalLiteralExpCS} '*'
+
+;
+
+InvalidLiteralExpCS:
+	{InvalidLiteralExpCS} 'invalid'
+
+;
+
+NullLiteralExpCS:
+	{NullLiteralExpCS} 'null'
+
+;
+
+
+
+PrimitiveTypeCS:
+	name=PrimitiveTypeIdentifier
+
+;
+
+
+
+TypeLiteralCS:
+	PrimitiveTypeCS  | TupleTypeCS | CollectionTypeCS 	
+
+;
+
+TypeLiteralExpCS:
+	ownedType=TypeLiteralCS
+
+;
+
+ 
+
+TypeNameExpCS:
+	(((namespace+=UnrestrictedName '::'
+		(namespace +=UnreservedName '::')*)
+		element=UnreservedName) | element=UnrestrictedName);
+
+
+
+TypeExpCS:
+	TypeNameExpCS | TypeLiteralCS	
+;
+
+
+
+NavigatingArgCS:
+	name=NavigatingArgExpCS (':' ownedType=TypeExpCS)? ('=' init=ExpCS)?;
+
+	
+
+NavigatingBarArgCS:
+	prefix='|' name=NavigatingArgExpCS (':' ownedType=TypeExpCS)? ('=' init=ExpCS)?;
+
+
+
+NavigatingCommaArgCS:
+	prefix=',' name=NavigatingArgExpCS (':' ownedType=TypeExpCS)? ('=' init=ExpCS)?;
+
+		
+
+NavigatingSemiArgCS :
+	prefix=';' name=NavigatingArgExpCS (':' ownedType=TypeExpCS)? ('=' init=ExpCS)?;
+
+
+
+NavigatingArgExpCS:
+	ExpCS;
+
+	
+
+IfExpCS:
+	'if' condition=ExpCS
+	'then' thenExpression=ExpCS
+	'else' elseExpression=ExpCS
+	'endif';
+
+LetExpCS:
+	'let' variable+=LetVariableCS (',' variable+=LetVariableCS)*
+	'in' in=ExpCS;
+	
+
+LetVariableCS:
+	name=UnrestrictedName (':'ownedType=TypeExpCS)? '='
+	initExpression=ExpCS;
+
+	
+
+NestedExpCS:
+	'(' source=ExpCS ')';
+
+	
+
+SelfExpCS:
+	{SelfExpCS}'self';
+
+
+ //TypeLiteralExpCS | CollectionLiteralExpCS |
+
+ 			
+
+  //regola ricorsiva da sistemare
+
+ 
+
+PrimaryExpCS:
+	NavigatingExpCS | SelfExpCS | PrimitiveLiteralExpCS | TupleLiteralExpCS |
+ 	LetExpCS | IfExpCS | NestedExpCS | StringExpCs
+		;
+
+
+StringExpCs:
+	name ='...'
+;
+
+
+	
+
+NameExpCS:
+	(((namespace+=UnrestrictedName '::'
+		(namespace +=UnreservedName '::')*)
+		element=UnreservedName) | element=UnrestrictedName);	
+
+		
+
+ExpCS:
+	InfixedExpCS
+
+;
+
+
+
+
+InfixedExpCS:
+		PrefixedExpCS ({InfixExpCS.ownedExpression+=current}
+	(ownedOperator+=BinaryOperatorCS ownedExpression+=PrefixedExpCS)+)?
+
+	 ;
+
+
+
+BinaryOperatorCS :
+	InfixOperatorCS | NavigationOperatorCS ;	
+
+InfixOperatorCS:
+	name=InfixOperator ;
+
+	
+
+NavigationOperatorCS :
+	name=NavigationOperator ;
+
+
+
+
+
+PrefixedExpCS :
+	PrimaryExpCS | ({PrefixExpCS} ownedOperator+=UnaryOperatorCS+
+		ownedExpression=PrimaryExpCS) ;
+
+		
+
+UnaryOperatorCS :
+	name=PrefixOperator ;
+
+	
+
+
+
+IndexExpCS:
+	NameExpCS
+	({IndexExpCS.namedExp=current}
+		'[' firstIndexes+=ExpCS (',' firstIndexes+=ExpCS)* ']'
+		('[' secondIndexes+=ExpCS (',' secondIndexes+=ExpCS)* ']')?)?;
+
+		
+
+NavigatingExpCS_Base:
+
+	IndexExpCS
+
+;
+
+
+
+NavigatingExpCS :
+	NavigatingExpCS_Base 
+	({NavigatingExpCS.namedExp=current}
+		'(' (argument+=NavigatingArgCS (argument+=NavigatingCommaArgCS)*
+			(argument+=NavigatingSemiArgCS
+				(argument+=NavigatingCommaArgCS)*)?
+				(argument+=NavigatingBarArgCS (argument+=NavigatingCommaArgCS)*)?)?')'
+					) ?;
+
+
+
+
+
+	
+

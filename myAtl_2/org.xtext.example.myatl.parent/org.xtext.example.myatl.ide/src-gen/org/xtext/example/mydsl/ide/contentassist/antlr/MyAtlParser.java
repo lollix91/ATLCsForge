@@ -44,6 +44,8 @@ public class MyAtlParser extends AbstractContentAssistParser {
 					put(grammarAccess.getEssentialOCLInfixOperatorAccess().getAlternatives(), "rule__EssentialOCLInfixOperator__Alternatives");
 					put(grammarAccess.getEssentialOCLNavigationOperatorAccess().getAlternatives(), "rule__EssentialOCLNavigationOperator__Alternatives");
 					put(grammarAccess.getCollectionTypeCSAccess().getAlternatives_1(), "rule__CollectionTypeCS__Alternatives_1");
+					put(grammarAccess.getCollectionTypeCSAccess().getAlternatives_1_0_0(), "rule__CollectionTypeCS__Alternatives_1_0_0");
+					put(grammarAccess.getCollectionTypeCSAccess().getAlternatives_1_0_2(), "rule__CollectionTypeCS__Alternatives_1_0_2");
 					put(grammarAccess.getTupleTypeCSAccess().getAlternatives_1(), "rule__TupleTypeCS__Alternatives_1");
 					put(grammarAccess.getPrimitiveLiteralExpCSAccess().getAlternatives(), "rule__PrimitiveLiteralExpCS__Alternatives");
 					put(grammarAccess.getBooleanLiteralExpCSAccess().getAlternatives(), "rule__BooleanLiteralExpCS__Alternatives");
